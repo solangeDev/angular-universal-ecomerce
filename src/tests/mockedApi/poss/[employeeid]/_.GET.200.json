@@ -1,0 +1,156 @@
+{
+  "elementsTotal": 3,
+  "elementsInPage": 3,
+  "data": [
+    {
+      "id": "61ead8171f9d5e194c5963f3",
+      "name": "POS Test 3",
+      "branchoffices": [
+        "61e6d6f7fc13ae106300007d",
+        "61e6d6f7fc13ae106300007e",
+        "61e6d6f7fc13ae106300007f",
+        "61e6d6f7fc13ae1063000081",
+        "61e6d6f7fc13ae1063000082",
+        "61e6d6f7fc13ae1063000083"
+      ],
+      "subsidiaries": [
+        "61e6d6f7fc13ae1063000065",
+        "61e6d6f7fc13ae1063000080"
+      ],
+      "employees": [
+        "575b7c0b0419c906e262d541",
+        "575b7c0b0419c906e262d543"
+      ],
+      "payModes": [
+        "575b7c0b0419c906e262d545",
+        "575b7c0b0419c906e262d546"
+      ],
+      "items": [],
+      "enabled": true,
+      "created": "UNIX_TIMESTAMP()",
+      "updated": "UNIX_TIMESTAMP()",
+      "company": "61a6cbabba9d7180d6f451cf"
+    },
+    {
+      "id": "61ead8171f9d5e194c5963d3",
+      "name": "POS Test 4",
+      "branchoffices": [],
+      "subsidiaries": [],
+      "employees": [
+        "575b7c0b0419c906e262d541",
+        "575b7c0b0419c906e262d542",
+        "575b7c0b0419c906e262d543"
+      ],
+      "payModes": [
+        "575b7c0b0419c906e262d544"
+      ],
+      "items": [
+        {
+          "id": "575b7c0b0419c906e262d541",
+          "type": "product",
+          "priceModifiers": [
+            {
+              "id": "575b7c0b0419c906e262d541",
+              "lock": true
+            },
+            {
+              "id": "575b7c0b0419c906e262d542",
+              "lock": false
+            }
+          ]
+        }
+      ],
+      "enabled": false,
+      "created": "UNIX_TIMESTAMP()",
+      "updated": "UNIX_TIMESTAMP()",
+      "company": "61a6cbabba9d7180d6f451cf"
+    },
+    {
+      "id": "61ead8171f9d5e194c5963c3",
+      "name": "POS Test",
+      "branchoffices": [
+        "61e6d6f7fc13ae1063000066",
+        "61e6d6f7fc13ae1063000067",
+        "61e6d6f7fc13ae1063000068",
+        "61e6d6f7fc13ae1063000069",
+        "61e6d6f7fc13ae106300006a",
+        "61e6d6f7fc13ae1063000071",
+        "61e6d6f7fc13ae1063000072",
+        "61e6d6f7fc13ae1063000073",
+        "61e6d6f7fc13ae1063000074",
+        "61e6d6f7fc13ae1063000075",
+        "61e6d6f7fc13ae1063000076",
+        "61e6d6f7fc13ae106300007c",
+        "61e6d6f7fc13ae106300007d",
+        "61e6d6f7fc13ae106300007e",
+        "61e6d6f7fc13ae106300007f",
+        "61e6d6f7fc13ae1063000081",
+        "61e6d6f7fc13ae1063000082",
+        "61e6d6f7fc13ae1063000083"
+      ],
+      "subsidiaries": [
+        "61e6d6f7fc13ae1063000065",
+        "61e6d6f7fc13ae1063000077",
+        "61e6d6f7fc13ae1063000080"
+      ],
+      "employees": [
+        "575b7c0b0419c906e262d541",
+        "575b7c0b0419c906e262d542",
+        "575b7c0b0419c906e262d543"
+      ],
+      "payModes": [
+        "575b7c0b0419c906e262d544",
+        "575b7c0b0419c906e262d545",
+        "575b7c0b0419c906e262d546"
+      ],
+      "items": [
+        {
+          "id": "575b7c0b0419c906e262d543",
+          "type": "all",
+          "priceModifiers": [
+            {
+              "id": "575b7c0b0419c906e262d541",
+              "lock": true
+            },
+            {
+              "id": "575b7c0b0419c906e262d542",
+              "lock": false
+            }
+          ]
+        },
+        {
+          "id": "575b7c0b0419c906e262d541",
+          "type": "product",
+          "priceModifiers": [
+            {
+              "id": "575b7c0b0419c906e262d541",
+              "lock": true
+            },
+            {
+              "id": "575b7c0b0419c906e262d542",
+              "lock": false
+            }
+          ]
+        },
+        {
+          "id": "575b7c0b0419c906e262d542",
+          "type": "category",
+          "priceModifiers": [
+            {
+              "id": "575b7c0b0419c906e262d543",
+              "lock": true
+            },
+            {
+              "id": "575b7c0b0419c906e262d544",
+              "lock": false
+            }
+          ]
+        }
+      ],
+      "enabled": false,
+      "created": "UNIX_TIMESTAMP()",
+      "updated": "UNIX_TIMESTAMP()",
+      "company": "61a6cbabba9d7180d6f451cf"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "elementsInPage": 3,
+  "elementsTotal": 3,
+  "data": [
+    {
+      "id": "1",
+      "name": "Iphone 13",
+      "quantity": 10,
+      "price": 699,
+      "sku": "sku-1",
+      "brand": "Apple",
+      "category": "Phones",
+      "status": "Published",
+      "variations": [
+        {
+          "id": "1-1",
+          "sku": "sku-1-1",
+          "description": "Black 32gb",
+          "price": 699,
+          "quantity": 15
+        },
+        {
+          "id": "1-2",
+          "sku": "sku-1-2",
+          "price": 739,
+          "description": "Gold 128gb",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Ipad 13 Pro",
+      "price": 599,
+      "quantity": 5,
+      "sku": "sku-5655",
+      "brand": "Apple",
+      "category": "Tablets",
+      "status": "Published"
+    },
+    {
+      "id": "3",
+      "name": "Imac pro",
+      "price": 2999,
+      "quantity": 4,
+      "sku": "sku-124313",
+      "brand": "Apple",
+      "category": "Pcs",
+      "status": "Published"
+    }
+  ]
+}

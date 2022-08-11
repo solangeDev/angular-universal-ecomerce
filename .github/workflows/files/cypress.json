@@ -1,0 +1,8 @@
+{
+  "pusher" : {
+    "appId": "1344856",
+    "key": "PUSHER_API_KEY_VALUE",
+    "secret": "PUSHER_API_SECRET_VALUE",
+    "cluster": "mt1"
+  }
+}

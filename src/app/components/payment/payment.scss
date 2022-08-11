@@ -1,0 +1,17 @@
+.payment {
+  .item {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    border: 1px solid #95a5a6;
+    border-radius: 10px;
+    width: 20%;
+    img {
+      width: 100px;
+      height: 50px;
+    }
+  }
+}

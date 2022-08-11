@@ -1,0 +1,5 @@
+{
+  "url": "purchase-orders",
+  "entrypoint": "@metises/mf-purchase-order",
+  "label": "Ordenes de compra"
+}

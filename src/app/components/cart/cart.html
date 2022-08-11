@@ -1,0 +1,22 @@
+<form [formGroup]="form" data-cy="form-cart" class="cart" (ngSubmit)="onSubmit()">
+  <div class="flex align-content-center justify-content-center flex-column">
+    <p-button
+      *ngIf="!fullWith"
+      data-cy="button-submit-cart"
+      type="submit"
+      class="button-view-cart"
+      [label]="'viewCart' | translate"
+    ></p-button>
+    <div [ngClass]="{'product-list-full-width': fullWith, 'product-list': !fullWith}" formGroupName="items">
+      <app-product-card
+        [fixedActions]="fixedActions"
+        data-cy="cart-item"
+        [size]="'s'"
+        [showActions]="true"
+        [control]="this.items.controls[i]"
+        [product]="item"
+        *ngFor="let item of cart.items; index as i;"
+      ></app-product-card>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,86 @@
+<div class="address form">
+  <div class="item" *ngIf="!active; else elseItem">
+    <div class="item-add">
+      <i class="pi pi-plus" data-cy="btn-add-address" (click)="newAddress()"></i>
+      <div>{{ 'address.add' | translate }}</div>
+    </div>
+    <div class="item-container">
+      <div class="item-address" *ngFor="let item of addresses">
+        <div>
+          <p-radioButton
+            (onClick)="setIsPrimaryAddress(item)"
+            name="isPrimary"
+            [(ngModel)]="item.isPrimary"
+            [value]="true"
+          ></p-radioButton>
+        </div>
+        <div>
+          <div class="item-text">{{item.address}}</div>
+          <div class="item-menu">
+            <div class="item-link" data-cy="btn-edit-address" (click)="open(item)">{{ 'address.edit' | translate }}</div>
+            <div class="item-link" data-cy="btn-delete-address" (click)="remove(item)">{{ 'address.remove' | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseItem>
+    <div class="icon-close"><i (click)="close()" class="pi pi-times"></i></div>
+    <form data-cy="form-address" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="grid p-fluid mt-3">
+        <div class="col-12 md:col-6">
+          <label class="label" for="name">{{ 'address.name' | translate }}</label>
+          <div class="p-inputgroup">
+            <input
+              type="text"
+              data-cy="input-name"
+              id="name"
+              name="name"
+              [formControl]="formControl.name"
+              pInputText
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <label class="label" for="address">{{ 'address.address' | translate }}</label>
+          <div class="p-inputgroup">
+            <input
+              data-cy="input-address"
+              id="address"
+              name="address"
+              type="text"
+              [formControl]="formControl.address"
+              pInputText
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="col-12 md:col-6">
+          <label class="label" for="countries">{{ 'address.country' | translate }}</label>
+          <p-dropdown
+            data-cy="input-country"
+            (onChange)="loadCitiesForm($event)"
+            [formControl]="formControl.country"
+            [options]="countriesOptions"
+            optionLabel="name"
+            placeholder=" "
+          ></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6">
+          <label class="label" for="cities">{{ 'address.city' | translate }}</label>
+          <p-dropdown
+            data-cy="input-city"
+            [options]="citiesOptions"
+            optionLabel="name"
+            [formControl]="formControl.city"
+            placeholder=" "
+          ></p-dropdown>
+        </div>
+      </div>
+      <footer class="footer">
+        <p-button [disabled]="!this.form.valid" data-cy="btn-address" type="submit" class="button-primary" [label]="'save' | translate"></p-button>
+      </footer>
+    </form>
+  </ng-template>
+</div>

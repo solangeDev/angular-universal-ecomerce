@@ -1,0 +1,177 @@
+{
+  "components": [
+    {
+      "name": "dashboard",
+      "registerApplication": true,
+      "routes": {
+        "path": "",
+        "name": "@metises/mf-dashboard"
+      }
+    },
+    {
+      "name": "categories",
+      "registerApplication": false,
+      "routes": {
+        "path": "categories",
+        "name": "@metises/mf-category"
+      }
+    },
+    {
+      "name": "products",
+      "registerApplication": false,
+      "routes": {
+        "path": "products",
+        "name": "@metises/mf-product"
+      }
+    },
+    {
+      "name": "employees",
+      "registerApplication": false,
+      "routes": {
+        "path": "employees",
+        "name": "@metises/mf-employee"
+      }
+    },
+    {
+      "name": "warehouses",
+      "registerApplication": false,
+      "routes": {
+        "path": "warehouses",
+        "name": "@metises/mf-warehouse"
+      }
+    },
+    {
+      "name": "price-modifiers",
+      "registerApplication": false,
+      "routes": {
+        "path": "price-modifiers",
+        "name": "@metises/mf-price-modifier"
+      }
+    },
+    {
+      "name": "pos",
+      "registerApplication": false,
+      "routes": {
+        "path": "pos",
+        "name": "@metises/mf-pos"
+      }
+    },
+    {
+      "name": "pos-clients",
+      "registerApplication": false,
+      "routes": {
+        "path": "pos-clients",
+        "name": "@metises/mf-pos-client"
+      }
+    },
+    {
+      "name": "subscription",
+      "registerApplication": false,
+      "routes": {
+        "path": "subscription",
+        "name": "@metises/mf-subscription"
+      }
+    },
+    {
+      "name": "purchase-orders",
+      "registerApplication": false,
+      "routes": {
+        "path": "purchase-orders",
+        "name": "@metises/mf-purchase-order"
+      }
+    }
+  ],
+  "ui": [
+    {
+      "entrypoint": "@metises/mf-product",
+      "label": "Products",
+      "icon": {
+        "url": "product.png",
+        "size": [80, 105.2],
+        "latLong": [-6.5, 2]
+      },
+      "routerLink": ["/products"]
+    },
+    {
+      "acl": "category:view",
+      "entrypoint": "@metises/mf-category",
+      "label": "Categories",
+      "icon": {
+        "url": "category.png",
+        "size": [67.8, 75.2],
+        "latLong": [17, 25]
+      },
+      "routerLink": ["/categories"]
+    },
+    {
+      "entrypoint": "@metises/mf-employee",
+      "label": "Employees",
+      "icon": {
+        "url": "role.png",
+        "size": [70.8, 81.2],
+        "latLong": [32, -22]
+      },
+      "routerLink": ["/employees"]
+    },
+    {
+      "entrypoint": "@metises/mf-warehouse",
+      "label": "Warehouses",
+      "icon": {
+        "url": "stock.png",
+        "size": [79.1, 68.4],
+        "latLong": [12, -51.5]
+      },
+      "routerLink": ["/warehouses"]
+    },
+    {
+      "entrypoint": "@metises/mf-price-modifier",
+      "label": "Price Modifiers",
+      "icon": {
+        "url": "price-modifier.png",
+        "size": [53.1, 55.1],
+        "latLong": [13, 58]
+      },
+      "routerLink": ["/price-modifiers"]
+    },
+    {
+      "entrypoint": "@metises/mf-subscription",
+      "label": "Subscription",
+      "icon": {
+        "url": "desktop.png",
+        "size": [97.1, 68.3],
+        "latLong": [31.5, 3.8]
+      },
+      "routerLink": ["/subscription"]
+    },
+    {
+      "entrypoint": "@metises/mf-pos",
+      "label": "Pos Config",
+      "icon": {
+        "url": "pos-config.png",
+        "size": [58.5, 54.5],
+        "latLong": [-12, -21]
+      },
+      "routerLink": ["/poss"]
+    },
+    {
+      "entrypoint": "@metises/mf-pos-client",
+      "label": "Pos",
+      "icon": {
+        "url": "pos.png",
+        "size": [34.7, 49.3],
+        "latLong": [-5.5, -12]
+      },
+      "routerLink": ["/pos-clients"]
+    },
+    {
+      "entrypoint": "@metises/mf-purchase-order",
+      "label": "Purchase Orders",
+      "icon": {
+        "url": "orders.png",
+        "size": [100.4, 71],
+        "latLong": [-23.0, -17]
+      },
+      "routerLink": ["/purchase-orders"]
+    }
+  ]
+}

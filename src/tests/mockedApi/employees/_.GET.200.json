@@ -1,0 +1,103 @@
+{
+  "elementsInPage": 10,
+  "elementsTotal": 12,
+  "data": [
+    {
+      "id": "1",
+      "image": "https://www.w3schools.com/w3css/img_lights.jpg",
+      "name": "Chris",
+      "lastName": "Pratt",
+      "email": "chris@gmail.com",
+      "gender": "Male",
+      "dateOfBirth": "1987-05-02",
+      "documentType": "RUT",
+      "documentNumber": "6548431354",
+      "phoneCode": "+56",
+      "phone": "123456789",
+      "mobileCode": "+56",
+      "mobile": "123456789",
+      "addresses": [
+        {
+          "name": "Test",
+          "address": "Test",
+          "city": "Caracas",
+          "country": "VE"
+        }
+      ],
+      "joiningDate": "2020-11-18",
+      "salary": 3000,
+      "salaryCurrency": "USD",
+      "status": true,
+      "permissions": [
+        {
+          "roles": ["61a6cbabba9d7180d6f451c2", "61a6cbabba9d7180d6f451c1"]
+        },
+        {
+          "roles": ["61a6cbabba9d7180d6f451c1"],
+          "subsidiaries": [
+            {
+              "id": "61d733ae44b29c09dc1b9092",
+              "branchoffices": [
+                "61d733ae44b29c09dc1b9092"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "image": "https://www.w3schools.com/w3css/img_lights.jpg",
+      "name": "Margot",
+      "lastName": "Robbie",
+      "email": "margot.robbie@gmail.com",
+      "gender": "Female",
+      "dateOfBirth": "1987-05-02",
+      "documentType": "RUT",
+      "documentNumber": "6548431354",
+      "phoneCode": "+56",
+      "phone": "123456789",
+      "mobileCode": "+56",
+      "mobile": "123456789",
+      "addresses": [
+        {
+          "name": "Test",
+          "address": "Test",
+          "city": "Caracas",
+          "country": "VE"
+        }
+      ],
+      "joiningDate": "2020-11-18",
+      "salary": 1000,
+      "salaryCurrency": "USD",
+      "status": true
+    },
+    {
+      "id": "575b7c0b0419c906e262d542",
+      "image": "https://www.w3schools.com/w3css/img_lights.jpg",
+      "name": "Mark",
+      "lastName": "Hamill",
+      "email": "mark.hamill@gmail.com",
+      "gender": "Male",
+      "dateOfBirth": "1987-05-02",
+      "documentType": "RUT",
+      "documentNumber": "6548431354",
+      "phoneCode": "+56",
+      "phone": "123456789",
+      "mobileCode": "+56",
+      "mobile": "123456789",
+      "addresses": [
+        {
+          "name": "Home",
+          "address": "Test",
+          "city": "Caracas",
+          "country": "VE"
+        }
+      ],
+      "joiningDate": "2020-11-18",
+      "salary": 2200,
+      "salaryCurrency": "USD",
+      "status": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "61a6cbabba9d7180d6f451c2",
+    "company": "61a6cbabba9d7180d6f451cf",
+    "name": "Company CEO",
+    "description": "Company CEO",
+    "ACLs": [
+      "user:add"
+    ]
+  },
+  {
+    "id": "61a6cbabba9d7180d6f451c1",
+    "company": "61a6cbabba9d7180d6f451cf",
+    "name": "Company Administrator",
+    "description": "Company Owner",
+    "ACLs": [
+      "user:add"
+    ]
+  }
+]

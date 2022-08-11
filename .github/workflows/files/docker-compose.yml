@@ -1,0 +1,134 @@
+version: "3.8"
+services:
+  traefik:
+    image: traefik:v2.8
+    command:
+      - "--accesslog=true"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--providers.file.filename=/etc/traefik/config.yaml"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=OPTIONS,GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,Company"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.cors.headers.addvaryheader=true"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - ./dockerfiles/traefik:/etc/traefik:rw
+    networks:
+      ui:
+        ipv4_address: 1.1.1.100
+  mf-main:
+    image: metises/mf-main
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mf-main.rule=Host(`app.metises.com`)"
+      - "traefik.http.routers.mf-main.entrypoints=websecure"
+      - "traefik.http.routers.mf-main.tls=true"
+      - "traefik.http.services.mf-main.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=OPTIONS,GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,Company"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.cors.headers.addvaryheader=true"
+      - "traefik.http.routers.mf-main.middlewares=cors"
+    extra_hosts:
+      - api.metises.com:1.1.1.100
+      - apit.metises.com:1.1.1.100
+      - app.metises.com:1.1.1.100
+      - components.metises.com:1.1.1.100
+    networks:
+      ui: null
+  mf-shell:
+    image: metises/mf-shell
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mf-shell.rule=Host(`components.metises.com`) && PathPrefix(`/unstable/shell`, `/shell`)"
+      - "traefik.http.middlewares.stripprefix-shell.stripprefix.prefixes=/shell"
+      - "traefik.http.middlewares.stripprefix-unstable.stripprefix.prefixes=/unstable/shell"
+      - "traefik.http.routers.mf-shell.entrypoints=websecure"
+      - "traefik.http.routers.mf-shell.tls=true"
+      - "traefik.http.services.mf-shell.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=OPTIONS,GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,Company"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.cors.headers.addvaryheader=true"
+      - "traefik.http.routers.mf-shell.middlewares=cors,stripprefix-shell,stripprefix-unstable"
+    extra_hosts:
+      - api.metises.com:1.1.1.100
+      - apit.metises.com:1.1.1.100
+      - app.metises.com:1.1.1.100
+      - components.metises.com:1.1.1.100
+    networks:
+      ui: null
+  spa:
+    image: metises/spa
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mf-spa.rule=Host(`components.metises.com`) && PathPrefix(`/metises-dashboard`, `/unstable/metises-dashboard`)"
+      - "traefik.http.routers.mf-spa.entrypoints=websecure"
+      - "traefik.http.routers.mf-spa.tls=true"
+      - "traefik.http.services.mf-spa.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.stripprefix-spa.stripprefix.prefixes=/metises-dashboard,/unstable/metises-dashboard"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=OPTIONS,GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,Company"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.cors.headers.addvaryheader=true"
+      - "traefik.http.routers.mf-spa.middlewares=cors,stripprefix-spa"
+    extra_hosts:
+      - api.metises.com:1.1.1.100
+      - apit.metises.com:1.1.1.100
+      - app.metises.com:1.1.1.100
+      - components.metises.com:1.1.1.100
+    networks:
+      ui: null
+  cypress:
+    image: cypress/browsers:node16.13.2-chrome97-ff96
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mf-mockapi.rule=Host(`api.metises.com`, `apit.metises.com`)"
+      - "traefik.http.routers.mf-mockapi.entrypoints=websecure"
+      - "traefik.http.routers.mf-mockapi.tls=true"
+      - "traefik.http.services.mf-mockapi.loadbalancer.server.port=80"
+      - "traefik.http.middlewares.unstable-replacepathregex.replacepathregex.regex=^/unstable/(.*)"
+      - "traefik.http.middlewares.unstable-replacepathregex.replacepathregex.replacement=/api/$$1"
+      - "traefik.http.middlewares.cors.headers.accesscontrolalloworiginlist=*"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowmethods=OPTIONS,GET,POST,PUT,DELETE"
+      - "traefik.http.middlewares.cors.headers.accesscontrolallowheaders=Content-Type,Authorization,Company"
+      - "traefik.http.middlewares.cors.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.cors.headers.addvaryheader=true"
+      - "traefik.http.routers.mf-mockapi.middlewares=cors,unstable-replacepathregex"
+    networks:
+      ui: null
+    user: root
+    depends_on:
+      - traefik
+    entrypoint:
+      - tail
+    command:
+      - "-f"
+      - "/var/log/faillog"
+    environment:
+      CYPRESS_CACHE_FOLDER: '/tmp'
+    extra_hosts:
+      - api.metises.com:1.1.1.100
+      - apit.metises.com:1.1.1.100
+      - app.metises.com:1.1.1.100
+      - components.metises.com:1.1.1.100
+    working_dir: /app
+    volumes:
+      - .:/app
+networks:
+  ui:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 1.1.1.0/24

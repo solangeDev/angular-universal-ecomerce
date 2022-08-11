@@ -1,0 +1,71 @@
+{
+  "elementsTotal": 5,
+  "elementsInPage": 5,
+  "data": [
+    {
+      "id": "61a56beae72c5e19dc22cd35",
+      "email": "dcustomer@timg.com",
+      "name": "Customer E",
+      "lastName": "Last E",
+      "gender": "Female",
+      "dateOfBirth": "1983-03-16",
+      "documentType": "RUT",
+      "documentNumber": "5548431354",
+      "phone": "223456789",
+      "mobile": "223456789",
+      "enabled": true
+    },
+    {
+      "id": "61a56beae72c5e19dc22cd34",
+      "email": "dcustomer@timg.com",
+      "name": "Customer D",
+      "lastName": "Last D",
+      "gender": "Other",
+      "dateOfBirth": "1983-08-16",
+      "documentType": "RUT",
+      "documentNumber": "4548431354",
+      "phone": "223456789",
+      "mobile": "223456789",
+      "enabled": true
+    },
+    {
+      "id": "61a56beae72c5e19dc22cd33",
+      "email": "ccustomer@timg.com",
+      "name": "Customer C",
+      "lastName": "Last C",
+      "gender": "Male",
+      "dateOfBirth": "1983-09-16",
+      "documentType": "RUT",
+      "documentNumber": "3548431354",
+      "phone": "223456789",
+      "mobile": "223456789",
+      "enabled": true
+    },
+    {
+      "id": "61a56beae72c5e19dc22cd32",
+      "email": "bcustomer@timg.com",
+      "name": "Customer B",
+      "lastName": "Last B",
+      "gender": "Female",
+      "dateOfBirth": "1983-12-22",
+      "documentType": "RUT",
+      "documentNumber": "2548431354",
+      "phone": "223456789",
+      "mobile": "223456789",
+      "enabled": true
+    },
+    {
+      "id": "61a56beae72c5e19dc22cd31",
+      "email": "acustomer@timg.com",
+      "name": "Customer A",
+      "lastName": "Last A",
+      "gender": "Male",
+      "dateOfBirth": "1983-10-16",
+      "documentType": "RUT",
+      "documentNumber": "1548431354",
+      "phone": "123456789",
+      "mobile": "123456789",
+      "enabled": true
+    }
+  ]
+}

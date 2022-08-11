@@ -1,0 +1,795 @@
+{
+  "elementsTotal": 12,
+  "elementsInPage": 10,
+  "data": [
+    {
+      "id": "575b7c0b0419c906e262d541",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/11830111/pexels-photo-11830111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2890376/pexels-photo-2890376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/1050558/pexels-photo-1050558.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "code": "65138543",
+      "name": "Camara Canon para profesionales",
+      "description": "<p>This is the Product A</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 56,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false,
+      "variationValues": {
+        "color": ["Blanco", "Negro"]
+      },
+      "variations": [
+        {
+          "id": "575b7c0b0419c906e262d5c1",
+          "code": "65138543c1",
+          "productDetails": {
+            "color": "azul",
+            "size": "s"
+          },
+          "price": 55,
+          "priceWithoutPriceModifier": {
+            "1213555": {
+              "priceModifier": {},
+              "priceBase": "56",
+              "applyAmount": ""
+            }
+          },
+          "warehouses": [
+            {
+              "warehouse": "575b7c0b0419c906e262d541",
+              "quantity": 15
+            }
+          ]
+        },
+        {
+          "id": "575b7c0b0419c906e262d5c2",
+          "code": "65138543c2",
+          "productDetails": {
+            "color": "blanco",
+            "size": "m"
+          },
+          "price": 54,
+          "priceWithoutPriceModifier": {
+            "1213555": {
+              "priceModifier": {},
+              "priceBase": "56",
+              "applyAmount": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "575b7c0b0419c906e262d542",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/9763014/pexels-photo-9763014.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+        "https://images.pexels.com/photos/11110467/pexels-photo-11110467.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+        "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/9846101/pexels-photo-9846101.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+      ],
+      "code": "65138543",
+      "name": "Carro deportivo BMW TRE 3400",
+      "description": "<p>This is the Carro deportivo BMW TRE 3400</p>",
+      "inventoryStatus": "outofstock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "variationValues": {
+        "color": ["Azul", "Rojo", "Gris"]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d543",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/7940543/pexels-photo-7940543.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/6222828/pexels-photo-6222828.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/11220641/pexels-photo-11220641.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      ],
+      "code": "65138543",
+      "name": "Zapatos y pantalones Vans",
+      "description": "<p>This is the Zapatos y pantalones Vans</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 25,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "variationValues": {
+        "color": ["Azul", "Rojo", "Gris"],
+        "size": ["US-10", "US-11", "US-12"]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d544",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/459653/pexels-photo-459653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/131187/pexels-photo-131187.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/226172/pexels-photo-226172.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      ],
+      "code": "65138543",
+      "name": "Laptop Macbook Air 16RAM 1TB SSD procesador M1",
+      "description": "<p>This is the Laptop Macbook Air 16RAM 1TB SSD procesador M1</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 96,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "variationValues": {
+        "color": ["Oro", "Rosa", "Plata"]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d545",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/3586249/pexels-photo-3586249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2825347/pexels-photo-2825347.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/5076511/pexels-photo-5076511.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      ],
+      "code": "65138543",
+      "name": "Iphone XS Max 256GB blanco",
+      "description": "<p>This is the Iphone XS Max 256GB blanco</p>",
+      "inventoryStatus": "outofstock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 155,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d546",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/1308713/pexels-photo-1308713.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/11901411/pexels-photo-11901411.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/270071/pexels-photo-270071.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      ],
+      "code": "65138543",
+      "name": "Pelotas de beisbol de la MLB",
+      "description": "<p>This is the Pelotas de beisbol de la MLB</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 6958,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d547",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/6572957/pexels-photo-6572957.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/7758348/pexels-photo-7758348.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/6573884/pexels-photo-6573884.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/6572963/pexels-photo-6572963.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      ],
+      "code": "65138543",
+      "name": "Pelota de Golf de Tyger Woods",
+      "description": "<p>This is the Pelota de Golf de Tyger Woods</p>",
+      "inventoryStatus": "outofstock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d548",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/3806768/pexels-photo-3806768.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/12801/pexels-photo-12801.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/10807493/pexels-photo-10807493.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/12749792/pexels-photo-12749792.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      ],
+      "code": "65138543",
+      "name": "Carro de jugete de Ferrari F1",
+      "description": "<p>This is the Carro de jugete de Ferrari F1</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d549",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/2043571/pexels-photo-2043571.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/164743/pexels-photo-164743.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/164935/pexels-photo-164935.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/112989/pexels-photo-112989.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      ],
+      "code": "65138543",
+      "name": "Piano de Jhon Lenon",
+      "description": "<p>This is the Piano de Jhon Lenon</p>",
+      "inventoryStatus": "outofstock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d550",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/1447418/pexels-photo-1447418.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/730564/pexels-photo-730564.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/2228570/pexels-photo-2228570.jpeg?auto=compress&cs=tinysrgb&w=600"
+      ],
+      "code": "65138543",
+      "name": "Bitcon Fisico",
+      "description": "<p>This is the Bitcon Fisico</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d551",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/843633/pexels-photo-843633.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/271681/pexels-photo-271681.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/1167023/pexels-photo-1167023.jpeg?auto=compress&cs=tinysrgb&w=600"
+      ],
+      "code": "65138543",
+      "name": "Yate de lujo",
+      "description": "<p>This is the Product K</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d552",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/12887055/pexels-photo-12887055.jpeg?auto=compress&cs=tinysrgb&w=600"
+      ],
+      "code": "65138543",
+      "name": "Balon de futbol del mundial Brasil 2014",
+      "description": "<p>This is the Balon de futbol del mundial Brasil 2014</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    },
+    {
+      "id": "575b7c0b0419c906e262d553",
+      "appliedModifiers": [],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": ["https://images.emojiterra.com/google/android-10/512px/1f3e0.png"],
+      "code": "65138543",
+      "name": "Casita amarilla Metises V0",
+      "description": "<p>This is the Product M</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 15,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    }
+  ]
+}

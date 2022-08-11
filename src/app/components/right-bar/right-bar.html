@@ -1,0 +1,8 @@
+<div class="right-bar">
+  <div class="button-sidebar" [ngClass]="{'button-sidebar-mob': navActive}" (click)="onConfigClick($event)">
+    <i class="pi pi-chevron-left"></i>
+  </div>
+  <div class="layout-sidebar layout-sidebar-right" [ngClass]="{'close': navActive}">
+    <app-cart></app-cart>
+  </div>
+</div>

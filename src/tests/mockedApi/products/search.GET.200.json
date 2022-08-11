@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "id": "category-1",
+      "name": "Latops",
+      "type": "category",
+      "products": [
+        {
+          "id": "product-1",
+          "type": "product",
+          "name": "MacBook Pro",
+          "brand": "Apple",
+          "category": {
+            "id": "category-1",
+            "name": "Latops"
+          }
+        },
+        {
+          "id": "product-2",
+          "type": "product",
+          "name": "MacBook Air",
+          "brand": "Apple",
+          "category": {
+            "id": "category-1",
+            "name": "Latops"
+          }
+        },
+        {
+          "id": "product-3",
+          "type": "product",
+          "name": "MacBook",
+          "brand": "Apple",
+          "category": {
+            "id": "category-1",
+            "name": "Latops"
+          }
+        }
+      ]
+    },
+    {
+      "id": "product-4",
+      "name": "Playstation 4",
+      "type": "product",
+      "brand": "Sony",
+      "category": {
+        "id": "category-2",
+        "name": "Consoles"
+      }
+    },
+    {
+      "id": "product-5",
+      "name": "Xbox One X",
+      "type": "product",
+      "brand": "Microsoft",
+      "category": {
+        "id": "category-2",
+        "name": "Consoles"
+      }
+    },
+    {
+      "id": "product-6",
+      "name": "Nintendo Switch",
+      "type": "product",
+      "brand": "Nintendo",
+      "category": {
+        "id": "category-2",
+        "name": "Consoles"
+      }
+    },
+    {
+      "id": "product-7",
+      "name": "Nintendo 3DS",
+      "type": "product",
+      "brand": "Nintendo",
+      "category": {
+        "id": "category-2",
+        "name": "Consoles"
+      }
+    }
+  ]
+}

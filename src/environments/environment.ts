@@ -1,0 +1,9 @@
+export const environment = {
+  production: false,
+  PORT: 4000,
+  apiProdUrl: 'https://api.metises.com/unstable',
+  apiTestUrl: 'https://apit.metises.com/unstable',
+  seoTitle: 'Metises Ecommerce',
+  PRIVATE_KEY:
+    '-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIBAAKCAQEAyM8tLSUxCgL+uQiku4XpBGEWaltHqW2qFKXhbQ8mzTAqoZpQ\n3OzLYaGbZVR5rFUvNNFWrL6XO9xhSEBtMUgzylks2ShwCJzzpt2AWlTl/xBBVhfF\nFnbb/OTaqctSzRfTkHeMZaIIBwWBb43lSs9nm4jrVT/FwSqtwRA87Rj30oIewBtC\n7bWqS0YrsnJdMMF/eD2tfwu5daF9vMWzWO1CHhoeyI+vUmsoafoiyw+VsmHuB8cJ\nQfkgTi57LJ3xdFFJj66vHqvOJuEvSv5ocmNxFn8gM+K1a9fz8iEhWIpnzkAlsTcz\n0TVau3/7McQ1gGAEdXC/GM2HcW8MyG44SH0YOQIDAQABAoIBAQDDx/orwc8GC9V9\nYcf6bJy7AE1ydHxx29GvP+uBAPy7oPJvjJy6SMQh9AYlzS6zrnnP7SmsUkXwvvS6\nFNZg7hxQdJEdSCeyvhNv5RV2/L8g5yBMZ/Bn7oqdDiOC2BFqlIhYmbXwgQGClwOT\nV6zuOziwk9Wd0AdmRc4SJVrBb05vlWJwrvvOtOyiTO9kwOwZ5L634jr42tJ80w/r\nHn33vRhVk/y9KJnOGX0/7yQKg7uUM2jONtn8JdejE+LdtR7uedyTd9ed0tevtTPE\n/vHzUOonwoJ+gAgMVj6+fUJFyGW3zXIMf1McxvhrHkrotaYS4XILlf1qrWtW34jB\nM4mPgslhAoGBAPK9c9MSaTEQZlNx48ta7YQDaUXnpvHaCDjhveYCFQ3n6fZclXgL\ngWqm7BxTq/WVsFi6fNRQdKE1gfNUkv4+B9mcoF3REqysYSfOh+TzKJd+E3rOhrxj\nr7LIyXDbT1YLJdAUvMCP3C0CFdfYcbSxGrbfUqSbSIxdHVbjofBBi+tzAoGBANPH\nWhv8Tzd2UyEZjFrKYc9uKLjlKS524Hg+C7VGdCMVzFai5K5bD4RqQL9urAG2ALtX\nWwiKDdtGRRtXWoyAtWiWkWX0OiNsaN+rLxsYI47pTR+bQsDsV8aC4Uk0hqJZKHZD\nuHj55VqGVCiDZ4jBpoeEM0kwAZM+1z2yCtYBcZqjAoGBAK/1m4du+ifh3nswvNMF\np9Uhb+eHpCH/TiSFp1WbPs3kxlmbBZKOrJK2S8PA948/oiS/kouJgvH1Sq0sKp34\nM1KQ0kMPsnzPPGJRuXrCtTMT5mUIXu0jShLMsBGKOLmDvTZYQfdIkW9i6pibwtkb\n5OSZgFvoYK+3M/RvcE0sBpR3AoGAAXHHpI84/xjYgk5JTck5l4+ZyYEOodl/uHI7\n5DWhzydz6FdeFe5bEb0jyep4U96o7J4w6cL/SzKUgBY9cN3j3t3ACiD7UIiJwpTJ\nUnb8rxnaQ8/sSaKTCrCT1sr77BmNlBjsJi8WKGLoKgqTZzRi7WOycdpY+GciUrJn\nLoR+AN8CgYEA4weNDxeX7QPbBLVqTm9b1lIf5OksnkpbR9Op2khF/zG9OQBScaQo\ngktSL/7tMbPTzxUxFwuWp46vsOwO1oABgjL/1l6loQW71NllUMPBW8szEI0+SaDX\nuHF5Ek06n9QW+4SLcmooMyhA0n413vgiyh8+Wp97hO/EgyQpUHT7qr0=\n-----END RSA PRIVATE KEY-----\n',
+};

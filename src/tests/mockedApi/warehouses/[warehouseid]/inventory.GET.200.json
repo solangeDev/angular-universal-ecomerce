@@ -1,0 +1,53 @@
+{
+  "elementsInPage": 10,
+  "elementsTotal": 3,
+  "data": [
+    {
+      "id": "1",
+      "name": "Iphone 13",
+      "quantity": 10,
+      "sku": "sku-1",
+      "brand": "Apple",
+      "category": "Phones",
+      "warehouse": "61d62657cca00127d5b83530",
+      "type": "simple",
+      "status": "Published",
+      "variations": [
+        {
+          "id": "1-1",
+          "sku": "sku-1-1",
+          "description": "Color: Negro - Ram: 8gb - Memoria: 32gb",
+          "quantity": 5
+        },
+        {
+          "id": "1-2",
+          "sku": "sku-1-2",
+          "description": "Color: Negro - Ram: 16gb - Memoria: 128gb",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Iphone 13 Pro",
+      "quantity": 5,
+      "sku": "sku-1",
+      "brand": "Apple",
+      "category": "Phones",
+      "warehouse": "61d62657cca00127d5b83530",
+      "type": "simple",
+      "status": "Published"
+    },
+    {
+      "id": "3",
+      "name": "Iphone 13 Pro Max",
+      "quantity": 4,
+      "sku": "sku-1",
+      "brand": "Apple",
+      "category": "Phones",
+      "warehouse": "61d62657cca00127d5b83530",
+      "type": "simple",
+      "status": "Published"
+    }
+  ]
+}

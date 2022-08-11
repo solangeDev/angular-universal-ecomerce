@@ -1,0 +1,5 @@
+{
+  "url": "pos",
+  "entrypoint": "@metises/mf-pos",
+  "label": "Punto de Venta (Configuración)"
+}

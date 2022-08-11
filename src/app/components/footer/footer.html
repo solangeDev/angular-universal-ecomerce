@@ -1,0 +1,16 @@
+<div data-cy="footer" class="footer">
+  <div class="menu" [ngClass]="{'sub-menu-open': open}">
+    <div data-cy="footer-tab" (click)="openTab()">Contacto, políticas y más</div>
+    <div>
+      <i (click)="openTab()" *ngIf="open; else elseIcon" class="pi pi-angle-down"></i>
+      <ng-template #elseIcon>
+        <i (click)="openTab()" class="pi pi-angle-up"></i>
+      </ng-template>
+    </div>
+  </div>
+  <div data-cy="sub-menu" [ngClass]="{'sub-menu': open, 'hide': !open }">
+    <div *ngFor="let item of links;">
+      <a data-cy="link" class="link" [routerLink]="item.href">{{item.name}}</a>
+    </div>
+  </div>
+</div>

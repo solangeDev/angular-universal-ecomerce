@@ -1,0 +1,38 @@
+[
+  {
+    "entrypoint": "@metises/mf-employee",
+    "label": "Employees",
+    "icon": "employees.png",
+    "routerLink": ["/employees"]
+  },
+  {
+    "entrypoint": "@metises/mf-category",
+    "label": "Category",
+    "icon": "categories.png",
+    "routerLink": ["/categories"]
+  },
+  {
+    "entrypoint": "@metises/mf-account",
+    "label": "Account",
+    "icon": "accounts.png",
+    "routerLink": ["/account"]
+  },
+  {
+    "entrypoint": "@metises/mf-price-modifier",
+    "label": "price modifier",
+    "icon": "price-modifiers.png",
+    "routerLink": ["/price-modifiers"]
+  },
+  {
+    "entrypoint": "@metises/mf-support",
+    "label": "support",
+    "icon": "support.png",
+    "routerLink": ["/support"]
+  },
+  {
+    "entrypoint": "@metises/mf-config",
+    "label": "config",
+    "icon": "config.png",
+    "routerLink": ["/config"]
+  }
+]

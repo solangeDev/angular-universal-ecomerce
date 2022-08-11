@@ -1,0 +1,60 @@
+{
+  "id": "575b7c0b0419c906e262d541",
+  "employee": "575b7c0b0419c906e262d54a",
+  "status": "closed",
+  "pos": {
+      "id": "575b7c0b0419c906e262d54a",
+      "name": "POS Test",
+      "branchoffices": [
+        "575b7c0b0419c906e262d5cc"
+      ],
+      "employees": [
+          "575b7c0b0419c906e262d541",
+          "575b7c0b0419c906e262d542",
+          "575b7c0b0419c906e262d543",
+          "575b7c0b0419c906e262d54a"
+      ],
+      "payModes": [
+          "575b7c0b0419c906e262d544",
+          "575b7c0b0419c906e262d545",
+          "575b7c0b0419c906e262d546"
+      ],
+      "items": [
+          {
+              "type": "all",
+              "priceModifiers": [
+                  {
+                      "id": "575b7c0b0419c906e262d541",
+                      "lock": true
+                  },
+                  {
+                      "id": "575b7c0b0419c906e262d542",
+                      "lock": false
+                  }
+              ]
+          },
+          {
+              "id": "575b7c0b0419c906e262d542",
+              "type": "product",
+              "priceModifiers": [
+                  {
+                      "id": "575b7c0b0419c906e262d543",
+                      "lock": true
+                  },
+                  {
+                      "id": "575b7c0b0419c906e262d544",
+                      "lock": false
+                  }
+              ]
+          }
+      ],
+      "enabled": true,
+      "created": "UNIX_TIMESTAMP()",
+      "updated": "UNIX_TIMESTAMP()",
+      "company": "575df0b00419c905492d0461"
+  },
+  "created": "UNIX_TIMESTAMP()",
+  "updated": "UNIX_TIMESTAMP()",
+  "company": "575df0b00419c905492d0461",
+  "note": "Note Test"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "620aa53e3abb58815f0b8dfa",
+    "name": "Test",
+    "address": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur exercitationem reprehenderit animi velit, deleniti sed eos dignissimos dolore ex soluta possimus fugit commodi ut nulla, ratione ipsum, laudantium enim corporis. Cupiditate ea est eaque tempora nostrum, perferendis blanditiis repellendus, temporibus magnam maiores neque vero facere asperiores et illo dolores fuga unde, nobis odio. Nesciunt, in fugiat eius accusantium corporis natus expedita ex quas molestias nulla accusamus voluptates, est mollitia possimus illum, alias iure recusandae repudiandae iste? Similique iste dolores eligendi, ea voluptate accusamus fugit neque quaerat itaque rem laudantium veniam! Nostrum veritatis, velit consectetur facere rerum sunt ab tempore. Itaque?",
+    "city": "Lima",
+    "country": "Peru",
+    "latitude": 10.17378,
+    "longitude": -68.004433,
+    "isPrimary": true
+  }
+]

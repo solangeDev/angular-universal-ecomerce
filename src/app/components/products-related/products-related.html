@@ -1,0 +1,6 @@
+<h1 class="mt-4">{{'pdp-products-related-title' | translate}}</h1>
+<div class="grid">
+    <app-product-card (click)="showFirstTab(product)"  data-cy="pdp-related-card" class="col-12 sm:col-6 xl:col-4 " *ngFor="let product of products;let i = index" [product]="product"></app-product-card>
+    <p-progressSpinner *ngIf="isLoading$ | async"></p-progressSpinner>
+</div>
+

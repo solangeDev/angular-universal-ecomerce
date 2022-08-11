@@ -1,0 +1,28 @@
+
+{
+  "id": "1",
+  "image": "https://www.w3schools.com/w3css/img_lights.jpg",
+  "name": "Chris",
+  "lastName": "Pratt",
+  "email": "chris@gmail.com",
+  "gender": "Male",
+  "dateOfBirth": "1987-05-02",
+  "documentType": "RUT",
+  "documentNumber": "6548431354",
+  "phoneCode": "+56",
+  "phone": "123456789",
+  "mobileCode": "+56",
+  "mobile": "123456789",
+  "addresses": [
+    {
+      "name": "Test",
+      "address": "Test",
+      "city": "Caracas",
+      "country": "VE"
+    }
+  ],
+  "joiningDate": "2020-11-18",
+  "salary": 3000,
+  "salaryCurrency": "USD",
+  "status": true
+}

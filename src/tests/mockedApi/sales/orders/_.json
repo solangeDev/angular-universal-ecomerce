@@ -1,0 +1,137 @@
+{
+  "elementsTotal": 12,
+  "elementsInPage": 10,
+  "data": [
+    {
+      "id": "61a56beae72c5e19dc22cddd",
+      "quote": "61a56beae72c5e19dc22cd31",
+      "enabled": true,
+      "items": [
+        {
+          "id": "ObjectId(575b7c0b0419c906e262d541)",
+          "product": {
+            "id": "575b7c0b0419c906e262d541",
+            "subsidiary": "575b7c0b0419c906e262d111",
+            "images": [
+              "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            ],
+            "code": "65138543",
+            "name": "Camara Canon para profesionales",
+            "description": "<p>This is the Product A</p>",
+            "inventoryStatus": "stock",
+            "enabled": true,
+            "publish": true,
+            "availableForDelivery": true,
+            "price": "56",
+            "fixedAsset": false,
+            "isForsale": true,
+            "measurementUnit": "article",
+            "discontinued": false
+          },
+          "price": 1520,
+          "quantity": 10,
+          "created": "TODAY()",
+          "updated": "TODAY()"
+        },
+        {
+          "id": "ObjectId(575b7c0b0419c906e262d542)",
+          "product": {
+            "id": "575b7c0b0419c906e262d542",
+            "subsidiary": "575b7c0b0419c906e262d111",
+            "images": [
+              "https://images.pexels.com/photos/9763014/pexels-photo-9763014.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            ],
+            "code": "65138543",
+            "name": "Carro deportivo BMW TRE 3400",
+            "description": "<p>This is the Carro deportivo BMW TRE 3400</p>",
+            "inventoryStatus": "OUTOFSTOCK",
+            "enabled": true,
+            "publish": true,
+            "availableForDelivery": true,
+            "fixedAsset": false,
+            "isForsale": true,
+            "measurementUnit": "article",
+            "discontinued": false
+          },
+          "price": 2050,
+          "quantity": 5,
+          "created": "TODAY()",
+          "updated": "TODAY()"
+        }
+      ],
+      "billingAddress": {
+        "address": "Test",
+        "city": "CL-VS",
+        "country": "CHL",
+        "latitude": "22.4",
+        "longitude": "23.5",
+        "name": "Test"
+      },
+      "shippingAddress":{
+        "address":"Test2",
+        "city":"EC-AB",
+        "country":"ECU",
+        "latitude": "23.4",
+        "longitude": "24.5",
+        "name":"Test2"
+      },
+      "status": "draft",
+      "created": "2022-04-08",
+      "updated": "UNIX_TIMESTAMP()",
+      "company": "575b7c0b0419c906e262d541"
+    },
+    {
+        "id": "61a56beae72c5e19dc22cddd",
+        "quote": "61a56beae72c5e19dc22cd31",
+        "enabled": true,
+        "items": [
+          {
+            "id": "ObjectId(575b7c0b0419c906e262d541)",
+            "product": {
+              "id": "575b7c0b0419c906e262d541",
+              "subsidiary": "575b7c0b0419c906e262d111",
+              "images": [
+                "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              ],
+              "code": "65138543",
+              "name": "Camara Canon para profesionales",
+              "description": "<p>This is the Product A</p>",
+              "inventoryStatus": "stock",
+              "enabled": true,
+              "publish": true,
+              "availableForDelivery": true,
+              "price": "56",
+              "fixedAsset": false,
+              "isForsale": true,
+              "measurementUnit": "article",
+              "discontinued": false
+            },
+            "price": 1520,
+            "quantity": 10,
+            "created": "TODAY()",
+            "updated": "TODAY()"
+          }
+        ],
+        "billingAddress": {
+          "address": "Test",
+          "city": "CL-VS",
+          "country": "CHL",
+          "latitude": "22.4",
+          "longitude": "23.5",
+          "name": "Test"
+        },
+        "shippingAddress":{
+          "address":"Test2",
+          "city":"EC-AB",
+          "country":"ECU",
+          "latitude": "23.4",
+          "longitude": "24.5",
+          "name":"Test2"
+        },
+        "status": "draft",
+        "created": "2022-04-08",
+        "updated": "UNIX_TIMESTAMP()",
+        "company": "575b7c0b0419c906e262d541"
+      }
+  ]
+}

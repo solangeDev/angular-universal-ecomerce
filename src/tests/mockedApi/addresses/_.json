@@ -1,0 +1,60 @@
+[
+  {
+    "id": "620aa53e3abb58815f0b8dfa",
+    "name": "Test",
+    "address": "Test",
+    "city": "Valencia",
+    "country": "Venezuela",
+    "latitude": 10.173780,
+    "longitude": -68.004433,
+    "reference": {
+      "BranchOffice\\BranchOffice\\BranchOffice": "61d733ae44b29c09dc1b9090"
+    }
+  },
+  {
+    "id": "620aa53e3abb58815f0b8dfb",
+    "name": "Test",
+    "address": "Test",
+    "city": "Ciudad Bolivar",
+    "country": "Venezuela",
+    "latitude": 8.121460,
+    "longitude": -63.576988,
+    "reference": {
+      "BranchOffice\\BranchOffice\\BranchOffice": "61d733ae44b29c09dc1b9001"
+    }
+  },
+  {
+    "id": "620aa53e3abb58815f0b8dfc",
+    "name": "Test",
+    "address": "Test",
+    "city": "Cumana",
+    "country": "Venezuela",
+    "latitude": 10.447860,
+    "longitude": -64.180313,
+    "reference": {
+      "BranchOffice\\BranchOffice\\BranchOffice": "61d733ae44b29c09dc1b9002"
+    }
+  },
+   {
+    "name": "Test",
+    "address": "Test",
+    "city": "Caracas",
+    "country": "Venezuela",
+    "latitude": 10.1451605,
+    "longitude": -67.989546,
+     "reference": {
+       "Subsidiary\\Subsidiary\\Subsidiary": "62b073cdd6ad5a65450e9eb2"
+     }
+   },
+  {
+      "name": "Test",
+      "address": "Test",
+      "city": "New York",
+      "country": "EEUU",
+      "latitude": 40.7127837,
+      "longitude": -74.0059413,
+      "reference": {
+        "Subsidiary\\Subsidiary\\Subsidiary": "575b7c0b0419c906e262d542"
+      }
+  }
+]

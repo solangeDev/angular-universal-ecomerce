@@ -1,0 +1,201 @@
+{
+  "id": "575b7c0b0419c906e262d541",
+  "posSession": "575b7c0b0419c906e262d541",
+  "customer": "575b7c0b0419c906e262d542",
+  "items": [
+    {
+      "id": "575b7c0b0419c906e262d5CAMARE",
+      "appliedModifiers": [
+        {
+          "name": "Modifier Price Camare",
+          "operation": "subtract",
+          "type": "fixedPrice",
+          "value": 15,
+          "isTax": false
+        }
+      ],
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/11830111/pexels-photo-11830111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/2890376/pexels-photo-2890376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/1050558/pexels-photo-1050558.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "code": "65138543",
+      "name": "Camara Canon para profesionales",
+      "description": "<p>This is the Product A</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "price": 56,
+      "quantity": 1,
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false,
+      "variationValues": {
+        "color": ["Blanco", "Negro"]
+      },
+      "variations": [
+        {
+          "id": "575b7c0b0419c906e262d5c1",
+          "code": "65138543c1",
+          "productDetails": {
+            "color": "azul",
+            "size": "s"
+          },
+          "price": "55",
+          "priceWithoutPriceModifier": {
+            "1213555": {
+              "priceModifier": {},
+              "priceBase": "56",
+              "applyAmount": ""
+            }
+          },
+          "warehouses": [
+            {
+              "warehouse": "575b7c0b0419c906e262d541",
+              "quantity": 15
+            }
+          ]
+        },
+        {
+          "id": "575b7c0b0419c906e262d5c2",
+          "code": "65138543c2",
+          "productDetails": {
+            "color": "blanco",
+            "size": "m"
+          },
+          "price": "54",
+          "priceWithoutPriceModifier": {
+            "1213555": {
+              "priceModifier": {},
+              "priceBase": "56",
+              "applyAmount": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "575b7c0b0419c906e262d543",
+      "name": "Zapatos y pantalones Vans",
+      "price": 1520,
+      "quantity": 1,
+      "subsidiary": "575b7c0b0419c906e262d111",
+      "images": [
+        "https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/7940543/pexels-photo-7940543.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/6222828/pexels-photo-6222828.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/11220641/pexels-photo-11220641.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      ],
+      "code": "65138543",
+      "description": "<p>This is the Zapatos y pantalones Vans</p>",
+      "inventoryStatus": "stock",
+      "enabled": true,
+      "publish": true,
+      "availableForDelivery": true,
+      "productDetails": {
+        "width": "xyz",
+        "height": "xyz",
+        "depth": "xyz",
+        "weight": "xyz",
+        "color": "red",
+        "brand": "xyz",
+        "model": "xyz"
+      },
+      "category": {
+        "name": "Category C",
+        "enabled": true,
+        "image": "image.jpg",
+        "order": 2,
+        "level": 0,
+        "id": "61a56beae72c5e19dc22cd37",
+        "company": "575b7c0b0419c906e262d541",
+        "productsCount": 0,
+        "children": [
+          {
+            "id": "61a56beae72c5e19dc22cd38",
+            "name": "Category CA",
+            "company": "575b7c0b0419c906e262d541",
+            "parent": "61a56beae72c5e19dc22cd37",
+            "enabled": true,
+            "image": "image.jpg",
+            "order": 0,
+            "level": 1,
+            "productsCount": 0,
+            "children": []
+          }
+        ]
+      },
+      "appliedModifiers": [
+        {
+          "name": "Modifier Price A",
+          "operation": "subtract",
+          "type": "fixedPrice",
+          "value": 15,
+          "isTax": false
+        },
+        {
+          "name": "Modifier Price B",
+          "operation": "subtract",
+          "type": "percent",
+          "value": 10,
+          "isTax": false
+        },
+        {
+          "name": "IVA",
+          "operation": "add",
+          "type": "percent",
+          "value": 16,
+          "isTax": true
+        }
+      ],
+      "variationValues": {
+        "color": ["Azul", "Rojo", "Gris"],
+        "size": ["US-10", "US-11", "US-12"]
+      },
+      "fixedAsset": false,
+      "isForsale": true,
+      "measurementUnit": "article",
+      "discontinued": false
+    }
+  ],
+  "created": "UNIX_TIMESTAMP()",
+  "updated": "UNIX_TIMESTAMP()",
+  "company": "575df0b00419c905492d0461"
+}

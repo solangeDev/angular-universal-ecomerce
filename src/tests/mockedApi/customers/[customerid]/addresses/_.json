@@ -1,0 +1,42 @@
+{
+  "elementsTotal": 2,
+  "elementsInPage": 2,
+  "data": [
+      {
+        "id": "61a56beae72c5e19dc22cd35",
+        "name": "principal",
+        "address": "av. 1 ",
+        "type": "1",
+        "city": "Santiago",
+        "state": "enable",
+        "country": "CL",
+        "isPrimaryAddress": true,
+        "isShippingAddress": false,
+        "isBillingAddress": false
+      },
+      {
+        "id": "61a56beae72c5e19dc22cd36",
+        "name": "filial",
+        "address": "av. 2",
+        "type": "2",
+        "city": "Santiago",
+        "state": "enable",
+        "country": "CL",
+        "isPrimaryAddress": false,
+        "isShippingAddress": true,
+        "isBillingAddress": false
+      },
+      {
+        "id": "61a56beae72c5e19dc22cd37",
+        "name": "filial",
+        "address": "av. 3",
+        "type": "2",
+        "city": "Santiago",
+        "state": "enable",
+        "country": "CL",
+        "isPrimaryAddress": false,
+        "isShippingAddress": false,
+        "isBillingAddress": true
+      }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "575b7c0b0419c906e262d54a",
+    "name": "Timg",
+    "domain": "timg",
+    "enabled": true,
+    "businessName": "Timg LLC",
+    "taxId": "J-123456789",
+    "subscription": "575b7c0b0419c906e262d541",
+    "logo": "https://firebasestorage.googleapis.com/v0/b/timg-metises.appspot.com/o/timg.png?alt=media&token=4ae446e3-195e-47bc-94e3-4d26e6afe371",
+    "address": {
+      "name": "Test",
+      "address": "Test",
+      "city": "575b7c0b0419c906e262d542",
+      "country": "575b7c0b0419c906e262d541",
+      "latitude": 33.4,
+      "longitude": 23.4
+    }
+  },
+  {
+    "_id": "575b7c0b0419c906e262d54a",
+    "name": "My Company",
+    "domain": "mycompany",
+    "enabled": true,
+    "businessName": "My company",
+    "taxId": "J-96234441",
+    "subscription": "575b7c0b0419c906e262d542",
+    "address": {
+      "name": "Test",
+      "address": "Test",
+      "city": "575b7c0b0419c906e262d542",
+      "country": "575b7c0b0419c906e262d541",
+      "latitude": 33.4,
+      "longitude": 23.4
+    }
+  }
+]

@@ -1,0 +1,35 @@
+<div class="layout-topbar header">
+  <div class="menu-logo">
+    <a class="layout-topbar-logo" routerLink="">
+      <img data-cy="logo-img" [src]="company.logo" alt="logo" class="logo mr-5" />
+    </a>
+    <a class="p-link layout-topbar-menu-button layout-topbar-button" href="#" (click)="toggleTopMenu($event)">
+      <i class="pi pi-ellipsis-v"></i>
+    </a>
+  </div>
+
+  <div class="categories">
+    <div>
+      <p-menubar class="menu-categories" [model]="categoryItems"></p-menubar>
+    </div>
+    <div class="container-search">
+      <div class="p-inputgroup">
+        <input
+          pInputText
+          (keydown.enter)="searchKeyEnter($event)"
+          data-cy="input-search"
+          type="text"
+          class="input-search"
+          [(ngModel)]="keyword"
+          placeholder=""
+        />
+        <p-button data-cy="button-search" (click)="search()" class="button-search" [label]="'search' | translate"></p-button>
+      </div>
+    </div>
+  </div>
+  <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':topMenuActive}">
+    <div>
+      <p-menubar [model]="profileItems" data-cy="p-menu-link" class="menu-profile"></p-menubar>
+    </div>
+  </div>
+</div> 

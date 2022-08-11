@@ -1,0 +1,61 @@
+.buy-card {
+    padding: 40px 20px;
+}
+
+.product-description {
+    font-size: 1.4rem;
+}
+
+.img-miniatures{
+    img {
+        cursor: pointer;
+        height: 60px;
+    }
+}
+
+.price {
+    margin-bottom: 30%;
+    span {
+        color:rgb(150, 150, 150);
+        font-size: 1.3rem;
+    }
+}
+
+.product-variant {
+    margin: 28px 0;
+    .size{
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    .p-dialog {
+        
+        padding: 10px;
+    }
+}
+
+.buy-button {
+    button {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 1.8rem;
+        font-weight: bolder;
+    }
+}
+
+.shipping-text {
+    font-size: 1.4rem;
+    .delivery{
+        color:rgb(124, 124, 124);
+    }
+}
+
+.product-primary-image{
+    height: 460px;
+    object-fit: cover;   
+}
+.secondary-images:hover{
+    opacity: 0.8;
+}
+.secondary-images {
+    object-fit: cover;
+}

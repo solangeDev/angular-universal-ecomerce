@@ -1,0 +1,15 @@
+{
+  "date": "2022-01-03 10:00:00",
+  "employee": {
+    "id": "1",
+    "firstName": "Chris",
+    "lastName": "Pratt"
+  },
+  "openingAmount": "200.00",
+  "cashSales": "50.00",
+  "paypalSales": "0",
+  "transfersSales": "70.00",
+  "cardSales": "0",
+  "totalSales": "50.00",
+  "total": "250.00"
+}

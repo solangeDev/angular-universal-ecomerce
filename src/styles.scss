@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeflex/primeflex.scss';
+@import '../node_modules/primeicons/primeicons.css';
+@import '../node_modules/prismjs/themes/prism-coy.css';
+@import 'assets/demo/flags/flags.css';
+@import 'assets/demo/documentation.scss';
+@import 'assets/styles/layout/_variables';
+@import 'assets/styles/layout/_layout';
+@import 'assets/styles/overrides/_overrides';
+@import 'assets/styles/layout/_topbar';
+@import 'assets/styles/layout/_form';
+
+.p-button:enabled:hover {
+  width: 100%;
+}
+
+.p-menubar {
+  background: transparent;
+  border: inherit;
+}
+
+.header {
+  .button-search {
+    button {
+      height: 32px !important;
+      border-radius: 0 !important;
+    }
+  }
+
+  .p-menuitem-icon {
+    font-size: 18px;
+  }
+
+  .p-menuitem-text {
+    font-size: 12px;
+  }
+
+  .p-menubar-root-list {
+    width: auto !important;
+    min-width: 110px !important;
+  }
+
+  .menu-profile {
+    .p-submenu-list {
+      right: 2px !important;
+    }
+  }
+  .menu-categories {
+    .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+      color: #2196f3 !important;
+      font-size: 20px !important;
+    }
+  }
+}
+
+.p-tabview .p-tabview-nav {
+  background: #ffffff;
+  border: 1px solid white;
+  border-width: 0 0 2px 0;
+}
+.p-tabview-nav-content {
+  font-size: 1.4rem;
+}
+.p-dialog {
+  border-radius: 12px;
+  overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .p-dialog {
+    width: 70%;
+  }
+}
+
+.input-cant {
+  .p-inputnumber-input {
+    margin-left: 3px;
+    width: 46px !important;
+    height: 25px !important;
+  }
+  .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
+    height: 9px !important;
+  }
+}
+
+.btn-checkout {
+  button {
+    border: 1px solid;
+    width: 200px;
+    height: 45px;
+    background-color: #ff793f !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}

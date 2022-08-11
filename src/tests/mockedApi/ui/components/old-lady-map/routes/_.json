@@ -1,0 +1,146 @@
+{
+  "components": [
+    {
+      "name": "dashboard",
+      "registerApplication": true,
+      "routes": {
+        "path": "",
+        "name": "@metises/mf-dashboard"
+      }
+    },
+    {
+      "name": "categories",
+      "registerApplication": false,
+      "routes": {
+        "path": "categories",
+        "name": "@metises/mf-category"
+      }
+    },
+    {
+      "name": "products",
+      "registerApplication": false,
+      "routes": {
+        "path": "products",
+        "name": "@metises/mf-product"
+      }
+    },
+    {
+      "name": "employees",
+      "registerApplication": false,
+      "routes": {
+        "path": "employees",
+        "name": "@metises/mf-employee"
+      }
+    },
+    {
+      "name": "warehouses",
+      "registerApplication": false,
+      "routes": {
+        "path": "warehouses",
+        "name": "@metises/mf-warehouse"
+      }
+    },
+    {
+      "name": "price-modifiers",
+      "registerApplication": false,
+      "routes": {
+        "path": "price-modifiers",
+        "name": "@metises/mf-price-modifier"
+      }
+    },
+    {
+      "name": "pos",
+      "registerApplication": false,
+      "routes": {
+        "path": "pos",
+        "name": "@metises/mf-pos"
+      }
+    },
+    {
+      "name": "pos-clients",
+      "registerApplication": false,
+      "routes": {
+        "path": "pos-clients",
+        "name": "@metises/mf-pos-client"
+      }
+    },
+    {
+      "name": "subscription",
+      "registerApplication": false,
+      "routes": {
+        "path": "subscription",
+        "name": "@metises/mf-subscription"
+      }
+    },
+    {
+      "name": "purchase-orders",
+      "registerApplication": false,
+      "routes": {
+        "path": "purchase-orders",
+        "name": "@metises/mf-purchase-order"
+      }
+    }
+  ],
+  "ui": [
+    {
+      "entrypoint": "@metises/mf-product",
+      "label": "Products",
+      "icon": {
+        "url": "product.svg",
+        "size": [272, 320],
+        "latLong": [20, 25]
+      },
+      "routerLink": ["/products"]
+    },
+    {
+      "entrypoint": "@metises/mf-dispatch",
+      "label": "Despachos",
+      "icon": {
+        "url": "dispatch.svg",
+        "size": [368, 321],
+        "latLong": [-26, -2]
+      },
+      "routerLink": ["/dispatch"]
+    },
+    {
+      "entrypoint": "@metises/mf-reception",
+      "label": "Recepciones",
+      "icon": {
+        "url": "reception.svg",
+        "size": [358, 299],
+        "latLong": [9.5, 70]
+      },
+      "routerLink": ["/reception"]
+    },
+    {
+      "entrypoint": "@metises/mf-warehouse",
+      "label": "Warehouses",
+      "icon": {
+        "url": "stock.svg",
+        "size": [259, 245],
+        "latLong": [19, -3]
+      },
+      "routerLink": ["/warehouses"]
+    },
+    {
+      "entrypoint": "@metises/mf-pos-client",
+      "label": "Pos",
+      "icon": {
+        "url": "pos.svg",
+        "size": [113.13, 151.17],
+        "latLong": [11.5, -23]
+      },
+      "routerLink": ["/pos-clients"]
+    },
+    {
+      "entrypoint": "@metises/mf-payment",
+      "label": "Payment",
+      "icon": {
+        "url": "payment.svg",
+        "size": [184.02, 173.1],
+        "latLong": [-0.5,-48]
+      },
+      "routerLink": ["/payment"]
+    }
+  ]
+}

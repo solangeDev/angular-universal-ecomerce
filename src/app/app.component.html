@@ -1,0 +1,15 @@
+<div class="layout-wrapper layout-static layout-theme-light">
+  <app-header *ngIf="isAllowedHeader()"></app-header>
+  <div class="layout-sidebar" *ngIf="isAllowedLeftBar()">
+    <app-left-bar></app-left-bar>
+  </div>
+  <app-right-bar *ngIf="isAllowedRightBar()"></app-right-bar>
+  <div class="layout-main-container">
+    <div class="layout-main">
+      <app-product-list *ngIf="isAllowedProductList()"></app-product-list>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+<p-toast position="top-right"></p-toast>

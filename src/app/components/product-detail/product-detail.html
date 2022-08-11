@@ -1,0 +1,66 @@
+<div class="grid">
+  <div class="sm:1 md:1 xl:col-1">
+    <div class="img-miniatures grid" data-cy="pdp-img-secondary">
+      <img
+        (mouseover)="moveToPrimary(img)"
+        *ngFor="let img of product.images"
+        width="100%"
+        class="col-3 xl:col-12 mb-5 secondary-images"
+        [src]="img"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="col-12 sm:5 md:6 xl:col-7">
+    <img data-cy="pdp-img-primary" width="100%" class="mb-2 product-primary-image" [src]="primaryImage" alt="" />
+    <h2>{{'pdp-description' | translate}}</h2>
+    <p class="product-description" [innerHtml]="product.description"></p>
+    <p-divider class="mb-6" layout="horizontal" align="center"> </p-divider>
+    <div class="shipping-text mt-6 mb-6" data-cy="pdp-type-shipping">
+      <b class="mr-2">{{'pdp-standard-shipping' | translate}}</b> <span>$35</span>
+      <p>Aug 1 - 13</p>
+      <p class="delivery">Lorem ipsun</p>
+    </div>
+    <p-divider class="mt-6" layout="horizontal" align="center"> </p-divider>
+  </div>
+  <div class="col-12 sm:6 md:5 xl:col-4">
+    <div class="card buy-card" data-cy="pdp-card">
+      <div class="title">
+        <h3 data-cy="pdp-name">{{product.name}}</h3>
+      </div>
+      <div class="price">
+        <b>
+          <h1 data-cy="pdp-price">{{ product.price | currency }}</h1>
+        </b>
+        <span>VAT Include</span>
+      </div>
+      <div class="product-variant" data-cy="pdp-variant">
+        <div class="container-dropdown" *ngFor="let variant of product.variationValues | keyvalue; let i = index">
+          <br />
+          <div class="size">
+            <b>{{variant.key | uppercase}}:</b>
+          </div>
+          <p-dropdown
+            *ngIf="product && product.variationValues"
+            [style]="{'minWidth':'100%', 'padding':'6px'}"
+            class="p-dropdown w-full"
+            [options]="options[i]"
+            [showClear]="false"
+          ></p-dropdown
+          ><br />
+        </div>
+      </div>
+      <div class="buy-button">
+        <button
+          [disabled]="product.inventoryStatus !== 'stock'"
+          [label]="product.inventoryStatus === 'stock' ? ('pdp-add-to-cart-button' | translate) : ('pdp-soldout-button' | translate)"
+          data-cy="button-add-to-cart"
+          (click)="addToCart(product)"
+          pButton
+          pRipple
+          class="mr-2 mb-2 text-center"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{
+  "url": "subscription",
+  "entrypoint": "@metises/mf-subscription",
+  "label": "Subscription"
+}

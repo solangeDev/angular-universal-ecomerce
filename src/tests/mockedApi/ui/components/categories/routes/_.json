@@ -1,0 +1,5 @@
+{
+  "url": "categories",
+  "entrypoint": "@metises/mf-category",
+  "label": "Categorias"
+}

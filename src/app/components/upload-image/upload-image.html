@@ -1,0 +1,18 @@
+<div class="image-upload">
+  <input #fileInput type="file" hidden (change)="fileChangeHandler($event)" />
+  <div *ngIf="!file; else elseBlock">
+    <div class="button-image" (click)="uploadImage()">
+      <i class="pi pi-camera"></i>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="image-container">
+      <div>
+        <img class="image" [src]="file" alt="" />
+      </div>
+      <div class="menu-image">
+        <i class="pi pi-pencil" (click)="uploadImage()"></i>
+      </div>
+    </div>
+  </ng-template>
+</div>

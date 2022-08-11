@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@metises/root-config": "//components.metises.com/metises/shell/unstable/metises-root-config.js",
+    "@metises/mf-dashboard": "//components.metises.com/metises/dashboard/unstable/main.js",
+    "@metises/mf-employee": "//components.metises.com/metises/employee/unstable/main.js",
+    "@metises/mf-category": "//components.metises.com/metises/category/unstable/main.js",
+    "@metises/mf-product": "//components.metises.com/metises/product/unstable/main.js",
+    "@metises/mf-warehouse": "//components.metises.com/metises/warehouse/unstable/main.js",
+    "@metises/mf-pos": "//components.metises.com/metises/pos/unstable/main.js",
+    "@metises/mf-purchase-order": "//components.metises.com/metises/purchase-order/unstable/main.js",
+    "@metises/mf-price-modifier": "//components.metises.com/metises/price-modifier/unstable/main.js",
+    "@metises/mf-pos-client": "//components.metises.com/metises/pos-client/unstable/main.js",
+    "@metises/mf-subscription": "//components.metises.com/metises/subscription/unstable/main.js"
+  }
+}

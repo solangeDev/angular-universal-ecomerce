@@ -1,0 +1,104 @@
+{
+  "elementsTotal": 3,
+  "elementsInPage": 3,
+  "data": [
+    {
+      "name": "Category A",
+      "enabled": true,
+      "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+      "order": 0,
+      "level": 0,
+      "id": "61a56beae72c5e19dc22cd31",
+      "company": "575b7c0b0419c906e262d541",
+      "productsCount": 11,
+      "children": [
+        {
+          "id": "61a56beae72c5e19dc22cd32",
+          "name": "Category AA",
+          "parentCategory": "61a56beae72c5e19dc22cd31",
+          "company": "575b7c0b0419c906e262d541",
+          "enabled": true,
+          "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+          "order": 0,
+          "level": 1,
+          "productsCount": 5,
+          "children": [
+            {
+              "id": "61a56beae72c5e19dc22cd33",
+              "name": "Category AAA",
+              "company": "575b7c0b0419c906e262d541",
+              "parentCategory": "61a56beae72c5e19dc22cd32",
+              "enabled": true,
+              "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+              "order": 0,
+              "level": 2,
+              "productsCount": 6,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category B",
+      "enabled": true,
+      "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+      "order": 1,
+      "level": 0,
+      "id": "61a56beae72c5e19dc22cd34",
+      "company": "575b7c0b0419c906e262d541",
+      "productsCount": 5,
+      "children": [
+        {
+          "id": "61a56beae72c5e19dc22cd35",
+          "name": "Category BA",
+          "company": "575b7c0b0419c906e262d541",
+          "parentCategory": "61a56beae72c5e19dc22cd34",
+          "enabled": true,
+          "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+          "order": 0,
+          "level": 1,
+          "productsCount": 2,
+          "children": [
+            {
+              "id": "61a56beae72c5e19dc22cd36",
+              "name": "Category BAA",
+              "company": "575b7c0b0419c906e262d541",
+              "parentCategory": "61a56beae72c5e19dc22cd35",
+              "enabled": true,
+              "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+              "order": 1,
+              "level": 2,
+              "productsCount": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category C",
+      "enabled": true,
+      "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+      "order": 2,
+      "level": 0,
+      "id": "61a56beae72c5e19dc22cd37",
+      "company": "575b7c0b0419c906e262d541",
+      "productsCount": 30,
+      "children": [
+        {
+          "id": "61a56beae72c5e19dc22cd38",
+          "name": "Category CA",
+          "company": "575b7c0b0419c906e262d541",
+          "parentCategory": "61a56beae72c5e19dc22cd37",
+          "enabled": true,
+          "image": "https://image.shutterstock.com/image-photo/pasuruan-indonesia-january-10-2013-600w-2023566566.jpg",
+          "order": 0,
+          "level": 1,
+          "productsCount": 30,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

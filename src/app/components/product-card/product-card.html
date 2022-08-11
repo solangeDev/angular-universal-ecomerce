@@ -1,0 +1,33 @@
+<div data-cy="product-card" class="card product-card m-3 border-1 surface-border product-card-{{size}}">
+  <div class="flex align-items-center justify-content-between"></div>
+  <div class="text-center">
+    <img data-cy="product-image" [src]="product.images" [alt]="product.name" class="w-full shadow-2 mx-0" />
+  </div>
+  <div class="add-to-cart">
+    <div data-cy="product-price" class="flex align-items-center justify-content-between">
+      <span class="text-{{size}} font-semibold">${{product.price}}</span>
+    </div>
+    <div data-cy="product-name" class="mb-2 mt-2 product-title">{{product.name}}</div>
+  </div>
+  <div
+    class=""
+    [ngClass]="{'product-fixed-menu': fixedActions, 'product-menu': !fixedActions, 'product-menu-show': showActions}"
+  >
+    <div>
+      <p-inputNumber
+        (onInput)="onInput($event)"
+        *ngIf="control"
+        data-cy="input-counter"
+        [formControl]="control.controls['item_'+ product.id]"
+        [name]="'item_'+ product.id"
+        class="input-cant"
+        mode="decimal"
+        inputId="minmax-buttons"
+        [min]="1"
+      ></p-inputNumber>
+    </div>
+    <div class="btn-trash">
+      <i class="pi pi-trash" (click)="deleteToCart()"></i>
+    </div>
+  </div>
+</div>

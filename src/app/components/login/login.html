@@ -1,0 +1,43 @@
+<form class="form" data-cy="form-profile" [formGroup]="form" (ngSubmit)="validateRecaptcha()">
+  <div class="flex form-container align-items-center justify-content-center overflow-hidden">
+    <div class="grid justify-content-center p-2 lg:p-0" style="min-width:80%">
+      <div class="col-12 mt-5 xl:mt-0 text-center">
+        <img data-cy="logo-img" [src]="company.logo" alt="logo"  class="mb-5" style="width:81px; height:60px; object-fit: contain;" />
+      </div>
+      <div class="col-12 xl:col-6"
+        style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+        <div class="h-full w-full m-0 py-7 px-4"
+          style="border-radius:53px; background: linear-gradient(180deg, #fafafa 38.9%, #edf1f500);">
+          <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">{{ 'welcome-metises-ecommerce' | translate }}</div>
+            <span class="text-600 font-medium">{{ 'login-to-continue' | translate }}</span>
+          </div>
+          <div class="w-full md:w-10 mx-auto">
+            <label for="email" class="block text-900 text-xl font-medium mb-2">{{ 'profile.email' | translate
+              }}</label>
+            <input id="email" type="text" [formControl]="formControl.email" pInputText class="w-full mb-3"
+              style="padding:1rem;" data-cy="input-email" name="email">
+            <label for="password" class="block text-900 font-medium text-xl mb-2">{{ 'signup-password' | translate
+              }}</label>
+            <p-password id="password" [formControl]="formControl.password" [feedback]="false" [toggleMask]="true"
+              styleClass="w-full mb-3" data-cy="input-password" name="password"></p-password>
+            <div class="flex align-items-center justify-content-between mb-5">
+              <div class="flex align-items-center">
+                <a routerLink="/signup" class="unregistered">
+                  <label for="rememberme1" class="text-600 font-medium">{{ 'idont-have-account' | translate }}</label>
+                </a>
+              </div>
+              <a routerLink="/request-recover-password" data-cy="recover-password"
+                class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">{{
+                'forgot-password' | translate }}</a>
+            </div>
+            <re-captcha #captchaRef size="invisible" (resolved)="resolved($event)"
+              siteKey="6LdK6TshAAAAAJYl9rYCTuqmMonnS7No2rWNcz-Y"></re-captcha>
+            <button *showClientSide data-cy="button-submit" [disabled]="!this.form.valid" [loading]="isSent" type="submit" pButton pRipple
+              [label]="'login-submit' | translate" class="w-full p-3 text-2xl"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

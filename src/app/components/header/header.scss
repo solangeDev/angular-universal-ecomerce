@@ -1,0 +1,60 @@
+.header {
+  .logo {
+    width: 45px;
+    height: 44px;
+  }
+  
+  .menu-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .input-search {
+    width: 70rem;
+    height: 32px;
+    border-right-color: transparent;
+  }
+
+  .categories {
+    align-items: center;
+    display: flex;
+    width: 100rem;
+    justify-content: flex-start;
+  }
+
+  .container-search {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1524px) {
+  .header {
+    .input-search {
+      width: 50rem;
+    }
+  }
+}
+
+@media (max-width: 1292px) {
+  .header {
+    .input-search {
+      width: 30rem;
+    }
+  }
+}
+
+@media (max-width: 1128px) {
+  .header {
+    .input-search {
+      width: auto;
+    }
+    .categories {
+      order: 3;
+      width: auto;
+    }
+  }
+}

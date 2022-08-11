@@ -1,0 +1,3 @@
+[submodule "src/tests/mockedApi"]
+	path = src/tests/mockedApi
+	url = git@github.com:timgchile/metises-mf-mocked-api.git

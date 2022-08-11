@@ -1,0 +1,119 @@
+<form class="form" data-cy="form-profile" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="card">
+    <h5>{{ 'profile.title' | translate }}</h5>
+    <div class="flex align-items-center justify-content-center">
+      <app-upload-image data-cy="image-upload" [value]="user.image" (imageEvent)="getImage($event)"></app-upload-image>
+    </div>
+    <div class="grid p-fluid mt-3">
+      <div class="col-12 md:col-6">
+        <label class="label" for="name">{{ 'profile.name' | translate }}</label>
+        <div class="p-inputgroup">
+          <input
+            data-cy="input-name"
+            type="text"
+            id="name"
+            name="name"
+            [formControl]="formControl.name"
+            pInputText
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <label class="label" for="lastname">{{ 'profile.lastname' | translate }}</label>
+        <div class="p-inputgroup">
+          <input
+            data-cy="input-lastname"
+            id="lastname"
+            name="lastname"
+            type="text"
+            [formControl]="formControl.lastName"
+            pInputText
+            placeholder=""
+          />
+        </div>
+      </div>
+      <div class="col-12 md:col-4">
+        <label class="label" for="email">{{ 'profile.email' | translate }}</label>
+        <div class="p-inputgroup">
+          <input
+            data-cy="input-email"
+            type="email"
+            id="email"
+            name="email"
+            [formControl]="formControl.email"
+            pInputText
+            placeholder=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h5>{{ 'profile.title2' | translate }}</h5>
+    <div class="grid p-fluid mt-3">
+      <div class="col-12 md:col-4">
+        <label class="label" for="password">{{ 'profile.password' | translate }}</label>
+        <div class="p-inputgroup input-right-icon">
+          <input
+            data-cy="input-password"
+            class="input"
+            id="password"
+            name="password"
+            [type]="showPassword?'text':'password'"
+            [formControl]="formControl.password"
+            pInputText
+            placeholder=""
+          />
+          <span class="p-inputgroup-addon">
+            <div class="input-icon-pass">
+              <i *ngIf="!showPassword; else elseBlock" (click)="showPasswordValue('password')" class="pi pi-eye"></i>
+              <ng-template #elseBlock
+                ><i (click)="showPasswordValue('password')" class="pi pi-eye-slash"></i
+              ></ng-template>
+            </div>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-12 md:col-4">
+        <label class="label" for="passwordConfirm">{{ 'profile.confirmedPassword' | translate }}</label>
+        <div class="p-inputgroup input-right-icon">
+          <input
+            data-cy="input-password-confirmed"
+            class="input"
+            [type]="showConfirmedPassword?'text':'password'"
+            id="passwordConfirm"
+            name="passwordConfirm"
+            (change)="handleChangePassword($event)"
+            [formControl]="formControl.confirmedPassword"
+            pInputText
+            placeholder=""
+          />
+          <span class="p-inputgroup-addon">
+            <div class="input-icon-pass">
+              <i
+                *ngIf="!showConfirmedPassword; else elseBlock2"
+                (click)="showPasswordValue('confirmedPassword')"
+                class="pi pi-eye"
+              ></i>
+              <ng-template #elseBlock2
+                ><i (click)="showPasswordValue('confirmedPassword')" class="pi pi-eye-slash"></i
+              ></ng-template>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p-button
+      data-cy="button-submit"
+      [disabled]="!this.form.valid"
+      type="submit"
+      class="button-primary"
+      [label]="'update' | translate"
+    ></p-button>
+  </footer>
+</form>

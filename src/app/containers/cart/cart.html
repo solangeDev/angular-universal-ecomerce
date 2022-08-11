@@ -1,0 +1,30 @@
+<div class="grid cart card">
+  <div class="col-12 lg:col-7">
+    <div class="panel">
+      <div class="panel-title">{{ 'cart.shipping' | translate }}</div>
+      <div class="panel-container">
+        <app-shipping-address></app-shipping-address>
+      </div>
+    </div>
+    <div class="panel mt-5">
+      <div class="panel-title">{{ 'cart.payment' | translate }}</div>
+      <div class="panel-container">
+        <app-payment></app-payment>
+      </div>
+    </div>
+    <div class="panel mt-5">
+      <div class="panel-title">{{ 'cart.items' | translate }}</div>
+      <div class="panel-container-cart">
+        <app-cart [fixedActions]="true" [fullWith]="true"></app-cart>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 lg:col-4">
+    <div class="panel">
+      <div class="panel-title">{{ 'cart.summary' | translate }}</div>
+      <div class="panel-container">
+        <app-order-summary></app-order-summary>
+      </div>
+    </div>
+  </div>
+</div>

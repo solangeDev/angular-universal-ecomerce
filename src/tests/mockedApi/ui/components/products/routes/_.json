@@ -1,0 +1,5 @@
+{
+  "url": "products",
+  "entrypoint": "@metises/mf-product",
+  "label": "Productos"
+}

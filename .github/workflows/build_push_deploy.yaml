@@ -1,0 +1,670 @@
+name: Build, Push and Deploy
+
+on:
+  push:
+    paths-ignore:
+      - 'devops/**'
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: true
+
+jobs:
+  notifyBuildStart:
+    name: Notify Build Start
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Build Start
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: devops
+          SLACK_COLOR: 'warning'
+          SLACK_ICON_EMOJI: ':robot_face:'
+          SLACK_MESSAGE: 'Build started'
+          SLACK_TITLE: Start building ${{ github.event.repository.name }}
+          SLACK_USERNAME: jarvis
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Checkout dockerfiles
+        uses: actions/checkout@v3
+        with:
+          repository: timgchile/dockerfiles.git
+          ref: master
+          path: dockerfiles
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Copy all files inside dockerfiles
+        shell: bash
+        run: |
+          cd dockerfiles/node
+          rsync -av --progress ../../* . --exclude dockerfiles --exclude .github
+          cp ../../.browserslistrc .browserslistrc
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ hashFiles('dockerfiles/node/Dockerfile') }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Build SPA image
+        uses: docker/build-push-action@v3
+        with:
+          context: dockerfiles/node
+          file: dockerfiles/node/Dockerfile
+          target: prod
+          build-args: |
+            VERSION=${{ steps.repository_info.outputs.branch }}
+          tags: |
+            us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}
+          load: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          outputs: type=docker,dest=/tmp/image.tar
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GH_TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: image
+          path: /tmp/image.tar
+          retention-days: 1
+  test_on_chrome:
+    name: Test on Chrome
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Checkout dockerfiles
+        uses: actions/checkout@v3
+        with:
+          repository: timgchile/dockerfiles.git
+          ref: master
+          path: dockerfiles
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: image
+          path: /tmp
+      - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a
+      - name: Login to GCP Image Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.METISES_GCP_SA }}
+      - name: Setup Test Env
+        shell: bash
+        run: |
+          DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+          mkdir -p $DOCKER_CONFIG/cli-plugins
+          curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+          chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+          docker version
+          docker compose version
+          TAG=${{ steps.repository_info.outputs.branch }}
+          docker pull us-docker.pkg.dev/metises-com/metises/mf-shell:unstable
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-main
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-shell
+          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises/spa
+          cp .github/workflows/files/docker-compose.yml docker-compose.yml
+          cp .github/workflows/files/cypress.json cypress.env.json
+          PUSHER_API_KEY=${{ secrets.PUSHER_API_KEY }}
+          PUSHER_API_SECRET=${{ secrets.PUSHER_API_SECRET }}
+          sed -i 's/PUSHER_API_KEY_VALUE/'${PUSHER_API_KEY}'/g' cypress.env.json
+          sed -i 's/PUSHER_API_SECRET_VALUE/'${PUSHER_API_SECRET}'/g' cypress.env.json
+          docker compose up -d
+          docker compose ps
+          docker compose exec cypress npm install --include=dev -f
+          while [[ $(docker compose ps mf-main --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-main service to come healthy its $(docker compose ps mf-main --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-main | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-shell service to come healthy its $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-shell | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps spa --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait spa service to come healthy its $(docker compose ps spa --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps spa | cut -d$'\n' -f 3
+            sleep 10
+          done
+          docker compose ps
+      - name: Test
+        shell: bash
+        run: |
+          BROWSER="chrome"
+          CYPRESS_BUILD_ID="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}"
+          docker compose exec cypress node_modules/.bin/cypress run \
+            --headless \
+            --browser "${BROWSER}" \
+            --tag "${CYPRESS_BUILD_ID}" \
+            --group "${CYPRESS_BUILD_ID}-${BROWSER}" \
+            --ci-build-id "${CYPRESS_BUILD_ID}" \
+            --record \
+            --key ${{ secrets.METISES_CYPRESS_RECORD_KEY }} \
+            --env GITHUB_TOKEN=${{ secrets.GH_TOKEN }} || (docker compose logs mf-main && docker compose logs mf-shell && docker compose logs spa && docker compose logs traefik && exit 1)
+      # Enable tmate debugging of manually-triggered workflows if the input option was provided
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled && failure() }}
+        timeout-minutes: 60
+        with:
+          limit-access-to-actor: true
+  #  test_on_edge:
+#    name: Test on Edge
+  #    runs-on: windows-latest
+  #    needs: [build]
+  #    steps:
+  #      - name: Checkout
+  #        uses: actions/checkout@v3
+  #        with:
+  #          token: ${{ secrets.GH_TOKEN }}
+  #          submodules: recursive
+  #      - name: Checkout dockerfiles
+  #        uses: actions/checkout@v3
+  #        with:
+  #          repository: timgchile/dockerfiles.git
+  #          ref: master
+  #          path: dockerfiles
+  #          token: ${{ secrets.GH_TOKEN }}
+  #          submodules: recursive
+  #      - name: Extract repository info
+  #        shell: bash
+  #        run: |
+  #          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+  #          TAG="${BRANCH_NAME//\//-}"
+  #          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+  #          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+  #          REAL_NAME=${{ github.event.repository.name }}
+  #          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+  #          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+  #          echo "::set-output name=real_name::${REAL_NAME}"
+  #          echo "::set-output name=name::${NAME}"
+  #          echo "::set-output name=ms_name::${MS_NAME}"
+  #          echo "::set-output name=branch::${TAG}"
+  #          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+  #        id: repository_info
+  #      - name: Download artifact
+  #        uses: actions/download-artifact@v3
+  #        with:
+  #          name: image
+  #          path: /tmp
+  #      - name: Load image
+  #        run: |
+  #          docker load --input /tmp/image.tar
+  #          docker image ls -a
+  #      - name: Setup Test Env
+  #        shell: bash
+  #        run: |
+  #          mkdir -p ~/.docker/cli-plugins/
+  #          curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-amd64 -o ~/.docker/cli-plugins/docker-compose
+  #          chmod +x ~/.docker/cli-plugins/docker-compose
+  #          TAG=${{ steps.repository_info.outputs.branch }}
+  #          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises/spa
+  #          cp .github/workflows/files/docker-compose.yml docker-compose.yml
+#            cp .github/workflows/files/cypress.json cypress.env.json
+#          PUSHER_API_KEY=${{ secrets.PUSHER_API_KEY }}
+#          PUSHER_API_SECRET=${{ secrets.PUSHER_API_SECRET }}
+#          sed -i 's/PUSHER_API_KEY_VALUE/'${PUSHER_API_KEY}'/g' cypress.env.json
+#          sed -i 's/PUSHER_API_SECRET_VALUE/'${PUSHER_API_SECRET}'/g' cypress.env.json
+  #          docker compose up -d
+  #          docker compose ps
+  #          while [[ $(docker compose ps spa --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+  #            printf ">> \e[21m\e[32mwait spa service to come healthy its $(docker compose ps spa --status running --format json | jq -r '.[].Health')\n\e[0m"
+  #            docker compose ps spa | cut -d$'\n' -f 3
+  #            sleep 10
+  #          done
+  #          BROWSER="firefox"
+  #          docker compose exec cypress mkdir -p /root/.cache/Cypress/9.2.1
+  #          docker compose exec cypress chmod -R 777 /root/.cache/Cypress
+  #          docker compose exec cypress npm install --include=dev
+  #          CYPRESS_BUILD_ID="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}"
+  #          docker compose exec cypress cypress run \
+  #            --headless \
+  #            --browser "${BROWSER}" \
+  #            --tag "${CYPRESS_BUILD_ID}" \
+  #            --group "${CYPRESS_BUILD_ID}-${BROWSER}" \
+  #            --ci-build-id "${CYPRESS_BUILD_ID}" \
+  #            --record \
+  #            --key ${{ secrets.METISES_CYPRESS_RECORD_KEY }} \
+  #            --env GITHUB_TOKEN=${{ secrets.GH_TOKEN }} || (docker compose logs spa && docker compose logs traefik && exit 1)
+#      # Enable tmate debugging of manually-triggered workflows if the input option was provided
+#      - name: Setup tmate session
+#        uses: mxschmitt/action-tmate@v3
+#        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled && failure() }}
+#        timeout-minutes: 60
+#        with:
+#          limit-access-to-actor: true
+  test_on_firefox:
+    name: Test on Firefox
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Checkout dockerfiles
+        uses: actions/checkout@v3
+        with:
+          repository: timgchile/dockerfiles.git
+          ref: master
+          path: dockerfiles
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: image
+          path: /tmp
+      - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a
+      - name: Login to GCP Image Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.METISES_GCP_SA }}
+      - name: Setup Test Env
+        shell: bash
+        run: |
+          DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+          mkdir -p $DOCKER_CONFIG/cli-plugins
+          curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+          chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+          docker version
+          docker compose version
+          TAG=${{ steps.repository_info.outputs.branch }}
+          docker pull us-docker.pkg.dev/metises-com/metises/mf-shell:unstable
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-main
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-shell
+          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises/spa
+          cp .github/workflows/files/docker-compose.yml docker-compose.yml
+          cp .github/workflows/files/cypress.json cypress.env.json
+          PUSHER_API_KEY=${{ secrets.PUSHER_API_KEY }}
+          PUSHER_API_SECRET=${{ secrets.PUSHER_API_SECRET }}
+          sed -i 's/PUSHER_API_KEY_VALUE/'${PUSHER_API_KEY}'/g' cypress.env.json
+          sed -i 's/PUSHER_API_SECRET_VALUE/'${PUSHER_API_SECRET}'/g' cypress.env.json
+          docker compose up -d
+          docker compose ps
+          docker compose exec cypress npm install --include=dev -f
+          while [[ $(docker compose ps mf-main --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-main service to come healthy its $(docker compose ps mf-main --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-main | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-shell service to come healthy its $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-shell | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps spa --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait spa service to come healthy its $(docker compose ps spa --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps spa | cut -d$'\n' -f 3
+            sleep 10
+          done
+          docker compose ps
+      - name: Test
+        shell: bash
+        run: |
+          BROWSER="firefox"
+          CYPRESS_BUILD_ID="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}"
+          docker compose exec cypress node_modules/.bin/cypress run \
+            --headless \
+            --browser "${BROWSER}" \
+            --tag "${CYPRESS_BUILD_ID}" \
+            --group "${CYPRESS_BUILD_ID}-${BROWSER}" \
+            --ci-build-id "${CYPRESS_BUILD_ID}" \
+            --record \
+            --key ${{ secrets.METISES_CYPRESS_RECORD_KEY }} \
+            --env GITHUB_TOKEN=${{ secrets.GH_TOKEN }} || (docker compose logs mf-main && docker compose logs mf-shell && docker compose logs spa && docker compose logs traefik && exit 1)
+      # Enable tmate debugging of manually-triggered workflows if the input option was provided
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled && failure() }}
+        timeout-minutes: 60
+        with:
+          limit-access-to-actor: true
+  lighthouse_check:
+    name: Test on Lighthouse
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Checkout dockerfiles
+        uses: actions/checkout@v3
+        with:
+          repository: timgchile/dockerfiles.git
+          ref: master
+          path: dockerfiles
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: image
+          path: /tmp
+      - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a
+      - name: Login to GCP Image Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.METISES_GCP_SA }}
+      - name: Setup Test Env
+        shell: bash
+        run: |
+          DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+          mkdir -p $DOCKER_CONFIG/cli-plugins
+          curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+          chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+          docker version
+          docker compose version
+          TAG=${{ steps.repository_info.outputs.branch }}
+          docker pull us-docker.pkg.dev/metises-com/metises/mf-shell:unstable
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-main
+          docker tag us-docker.pkg.dev/metises-com/metises/mf-shell:unstable metises/mf-shell
+          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises/spa
+          cp .github/workflows/files/docker-compose.yml docker-compose.yml
+          docker compose up -d
+          docker compose ps
+          docker compose exec cypress npm install --include=dev -f
+          docker compose exec -d cypress npm run mock-api
+          while [[ $(docker compose ps mf-main --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-main service to come healthy its $(docker compose ps mf-main --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-main | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait mf-shell service to come healthy its $(docker compose ps mf-shell --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps mf-shell | cut -d$'\n' -f 3
+            sleep 10
+          done
+          while [[ $(docker compose ps spa --status running --format json | jq -r '.[].Health') != 'healthy' ]]; do
+            printf ">> \e[21m\e[32mwait spa service to come healthy its $(docker compose ps spa --status running --format json | jq -r '.[].Health')\n\e[0m"
+            docker compose ps spa | cut -d$'\n' -f 3
+            sleep 10
+          done
+          docker compose ps
+      - name: Lighthouse
+        shell: bash
+        run: |
+          docker compose exec cypress npm run lighthouse
+      # Enable tmate debugging of manually-triggered workflows if the input option was provided
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled && failure() }}
+        timeout-minutes: 60
+        with:
+          limit-access-to-actor: true
+  deploy-to-gcp:
+    name: Deploy to GCP
+    runs-on: ubuntu-latest
+    needs: [test_on_chrome, test_on_firefox, lighthouse_check]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout dockerfiles
+        uses: actions/checkout@v3
+        with:
+          repository: timgchile/dockerfiles.git
+          ref: master
+          path: dockerfiles
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: image
+          path: /tmp
+      - name: Load image
+        run: |
+          docker load --input /tmp/image.tar
+          docker image ls -a
+      - name: Login to GCP Image Registry
+        uses: docker/login-action@v2
+        with:
+          registry: us-docker.pkg.dev
+          username: _json_key
+          password: ${{ secrets.METISES_GCP_SA }}
+      - name: Push SPA image
+        shell: bash
+        run: |
+          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}-${{ steps.repository_info.outputs.build_number }}
+          docker push us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}
+          docker push us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}-${{ steps.repository_info.outputs.build_number }}
+#  deploy-to-azure:
+#    name: Deploy to Azure
+#    runs-on: ubuntu-latest
+#    needs: [test_on_chrome, test_on_firefox, lighthouse_check]
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#        with:
+#          token: ${{ secrets.GH_TOKEN }}
+#          submodules: recursive
+#      - name: Extract repository info
+#        shell: bash
+#        run: |
+#          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+#          TAG="${BRANCH_NAME//\//-}"
+#          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+#          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); fi
+#          REAL_NAME=${{ github.event.repository.name }}
+#          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+#          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-mf-//g')
+#          echo "::set-output name=real_name::${REAL_NAME}"
+#          echo "::set-output name=name::${NAME}"
+#          echo "::set-output name=ms_name::${MS_NAME}"
+#          echo "::set-output name=branch::${TAG}"
+#          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+#        id: repository_info
+#      - name: Download artifact
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: image
+#          path: /tmp
+#      - name: Load image
+#        run: |
+#          docker load --input /tmp/image.tar
+#          docker image ls -a
+#      - name: Login to Azure Image Registry
+#        uses: docker/login-action@v2
+#        with:
+#          registry: metises.azurecr.io
+#          username: ${{ secrets.METISES_AZURE_REGISTRY_USERNAME }}
+#          password: ${{ secrets.METISES_AZURE_REGISTRY_PASSWORD }}
+#      - name: Push SPA image
+#        shell: bash
+#        run: |
+#          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises.azurecr.io/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}
+#          docker tag us-docker.pkg.dev/metises-com/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }} metises.azurecr.io/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}-${{ steps.repository_info.outputs.build_number }}
+#          docker push metises.azurecr.io/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}
+#          docker push metises.azurecr.io/metises/${{ steps.repository_info.outputs.name }}:${{ steps.repository_info.outputs.branch }}-${{ steps.repository_info.outputs.build_number }}
+  deploy-to-sentry:
+    name: Deploy to Sentry
+    runs-on: ubuntu-latest
+    needs: [test_on_chrome, test_on_firefox, lighthouse_check]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          submodules: recursive
+      - name: Extract repository info
+        shell: bash
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          TAG="${BRANCH_NAME//\//-}"
+          DEPLOY="ok"
+          if [[ ${TAG} == "master" ]]; then TAG="unstable"; fi
+          if [[ $(echo ${TAG} | cut -d'-' -f 1) == "release" ]]; then TAG=$(echo ${TAG} | cut -d'-' -f 2); else DEPLOY="no"; fi
+          REAL_NAME=${{ github.event.repository.name }}
+          NAME=$(echo ${REAL_NAME}| sed 's/metises-//g')
+          MS_NAME=$(echo ${REAL_NAME}| sed 's/metises-ms-//g')
+          if [[ ${TAG} == "unstable" ]]; then ENVIRONMENT="testing"; else ENVIRONMENT="production"; fi
+          echo "::set-output name=real_name::${REAL_NAME}"
+          echo "::set-output name=name::${NAME}"
+          echo "::set-output name=ms_name::${MS_NAME}"
+          echo "::set-output name=branch::${TAG}"
+          echo "::set-output name=deploy::${DEPLOY}"
+          echo "::set-output name=environment::${ENVIRONMENT}"
+          echo "::set-output name=build_number::${GITHUB_RUN_NUMBER}"
+        id: repository_info
+      - name: Sentry Release
+        if: ${{ steps.repository_info.outputs.deploy == 'ok' }}
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: timgla
+          SENTRY_PROJECT: ${{ steps.repository_info.outputs.real_name }}
+        with:
+          environment: ${{ steps.repository_info.outputs.environment }}
+          version: ${{ steps.repository_info.outputs.branch }}
+  notifyBuildEnd:
+    name: Notify Build End
+    runs-on: ubuntu-latest
+    needs: [ deploy-to-gcp, deploy-to-sentry ]
+    if: always()
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v3
+      - name: Notify Build End
+        uses: rtCamp/action-slack-notify@v2
+        if: env.WORKFLOW_CONCLUSION != 'failure'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: devops
+          SLACK_COLOR: 'good'
+          SLACK_ICON_EMOJI: ':robot_face:'
+          SLACK_MESSAGE: 'Build finished'
+          SLACK_TITLE: ${{ github.event.repository.name }} build completed sucessfully
+          SLACK_USERNAME: jarvis
+      - name: Notify Build End Failing
+        uses: rtCamp/action-slack-notify@v2
+        if: env.WORKFLOW_CONCLUSION == 'failure'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: devops
+          SLACK_COLOR: '#FF0000'
+          SLACK_ICON_EMOJI: ':robot_face:'
+          SLACK_MESSAGE: 'Build finished with errors'
+          SLACK_TITLE: ${{ github.event.repository.name }} build failed
+          SLACK_USERNAME: jarvis
+      - name: Delete artifacts
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: |
+            image
+          failOnError: false

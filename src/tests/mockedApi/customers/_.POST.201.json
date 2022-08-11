@@ -1,0 +1,14 @@
+{
+  "id": "1",
+  "dateOfBirth": "1987-05-02",
+  "email": "test@timg.com",
+  "documentType": "RUT",
+  "documentNumber": "6548431354",
+  "phone": "123456789",
+  "mobile": "123456789",
+  "name": "Carlos",
+  "lastName": "Lagos",
+  "gender": "Male",
+  "created": "2022-07-11 00:00:00",
+  "updated": "2022-07-11 00:00:00"
+}

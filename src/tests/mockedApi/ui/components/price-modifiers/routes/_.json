@@ -1,0 +1,5 @@
+{
+  "url": "price-modifiers",
+  "entrypoint": "@metises/mf-price-modifier",
+  "label": "Modificadores de precios"
+}

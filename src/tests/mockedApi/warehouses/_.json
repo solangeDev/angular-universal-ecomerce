@@ -1,0 +1,198 @@
+{
+  "elementsTotal": 1,
+  "elementsInPage": 1,
+  "data": [
+    {
+      "id": "1",
+      "name": "almacen principal",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "2",
+      "name": "almacen B",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "3",
+      "name": "almacen C",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "4",
+      "name": "almacen D",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "5",
+      "name": "almacen E",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "6",
+      "name": "almacen F",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "7",
+      "name": "almacen G",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "8",
+      "name": "almacen H",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "9",
+      "name": "almacen I",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "10",
+      "name": "almacen J",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "11",
+      "name": "almacen K",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    },
+    {
+      "id": "12",
+      "name": "almacen L",
+      "address": {
+        "name": "Test",
+        "address": "Test",
+        "type": "test",
+        "city": "575b7c0b0419c906e262d542",
+        "country": "575b7c0b0419c906e262d541"
+      },
+      "enabled": true,
+      "contact": "575b7c0b0419c906e262d541",
+      "company": "575b7c0b0419c906e262d52a",
+      "subsidiary": "575b7c0b0419c906e262d53a",
+      "branchOffice": "575b7c0b0419c906e262d54a"
+    }
+  ]
+}

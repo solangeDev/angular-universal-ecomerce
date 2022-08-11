@@ -1,0 +1,39 @@
+{
+  "elementsTotal": 3,
+  "elementsInPage": 3,
+  "data": [
+    {
+      "employee": {
+        "id": "575b7c0b0419c906e262d541",
+        "email": "test@metises.com"
+      },
+      "session": {
+        "status": "open",
+        "openAmount": 300,
+        "created": "2021-10-05"
+      }
+    },
+    {
+      "employee": {
+        "id": "575b7c0b0419c906e262d541",
+        "email": "test@metises.com"
+      },
+      "session": {
+        "status": "open",
+        "openAmount": 300,
+        "created": "2021-10-05"
+      }
+    },
+    {
+      "employee": {
+        "id": "575b7c0b0419c906e262d541",
+        "email": "test@metises.com"
+      },
+      "session": {
+        "status": "open",
+        "openAmount": 300,
+        "created": "2021-10-05"
+      }
+    }
+  ]
+}

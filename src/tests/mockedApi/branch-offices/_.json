@@ -1,0 +1,101 @@
+[
+  {
+    "id": "61d733ae44b29c09dc1b9090",
+    "subsidiary": "61d733ae44b29c09dc1b9091",
+    "name": "Asoka",
+    "businessName": "Twimbo",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9001",
+    "subsidiary": "61d733ae44b29c09dc1b9091",
+    "name": "Asoka",
+    "businessName": "Twimbo",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9002",
+    "subsidiary": "61d733ae44b29c09dc1b9091",
+    "name": "Asoka",
+    "businessName": "Twimbo",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9092",
+    "subsidiary": "61d733ae44b29c09dc1b9092",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9008",
+    "subsidiary": "61d733ae44b29c09dc1b9092",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9001",
+    "subsidiary": "61d733ae44b29c09dc1b9092",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b9093",
+    "subsidiary": "61d733ae44b29c09dc1b9093",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b0458",
+    "subsidiary": "61d733ae44b29c09dc1b9093",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  },
+  {
+    "id": "61d733ae44b29c09dc1b0458",
+    "subsidiary": "61d733ae44b29c09dc1b9093",
+    "name": "Bigtax",
+    "businessName": "Gevee",
+    "taxId": "J-123456789",
+    "enabled": true,
+    "created": "2022-04-26",
+    "updated": "2022-04-26",
+    "company": "61a6cbabba9d7180d6f451cf"
+  }
+]

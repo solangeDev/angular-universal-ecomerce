@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "575b7c0b0419c906e262d541",
+      "name": "Freemium"
+    },
+    {
+      "id": "575b7c0b0419c906e262d542",
+      "name": "Starter"
+    },
+    {
+      "id": "575b7c0b0419c906e262d543",
+      "name": "Pyme"
+    },
+    {
+      "id": "575b7c0b0419c906e262d544",
+      "name": "Enterprise"
+    }
+  ]
+}
